@@ -50,9 +50,15 @@ try {
                 throw new Exception('Aucun identifiant de commentaire envoyé');
             }
         }
+        elseif ($_GET['action'] == 'about') {
+            about();
+        }
+        elseif ($_GET['action'] == 'contact') {
+            contact();
+        }
     }
     else {
-        listPosts();
+        welcomePosts();
     }
 }
 catch(Exception $e) {
