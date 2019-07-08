@@ -3,7 +3,9 @@
 <?php ob_start(); ?>
 <div class="title">
     <h1>Bienvenue sur mon site</h1>
-    <div class="separation"></div>
+    <div class="separation">
+        <div class="line"></div><p>⭐</p><div class="line"></div>
+    </div>
 </div>
 
 <div class="home-about">

@@ -115,6 +115,7 @@ h1, h2, h3
 h1
 {
     font-size: 4em;
+    text-transform: uppercase;
 }
 h2
 {
@@ -191,6 +192,23 @@ a
     background-color: rgba(240,240,240, 0.9);
 }
 
+.separation
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.line
+{
+    width: 120px;
+    height: 4px;
+    background-color: black;
+}
+.separation p
+{
+    font-size: 3em;
+    color: black;
+}
 .home-about
 {
     height: 600px;
