@@ -313,6 +313,38 @@ a
     transform: scale(1.4);
 }
 
+/* ------ SCROLL BUTTON ------ */
+a#b-Back{
+  border-radius:3px;
+  padding:20px;
+  font-size:15px;
+  text-align:center;
+  color:#fff;
+  background:rgba(24,24,24, 0.9);
+  position:fixed;
+  right:20px;
+  opacity:1;
+  z-index:99999;
+  transition:all ease-in 0.2s;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  text-decoration: none;
+}
+a#b-Back:before{ content: "\25b2"; }
+a#b-Back:hover{
+  background:rgba(0, 0, 0, 1);
+  transition:all ease-in 0.2s;
+}
+a#b-Back.b-Hidden{
+  bottom:-35px;
+  opacity:0;
+  transition:all ease-in 0.5s;
+}
+
+a#b-Back.b-Visible{
+  bottom:20px;
+  opacity:1;
+}
 
 /* ------ SNOW ANIMATION ------ */
 

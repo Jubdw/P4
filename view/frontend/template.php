@@ -7,6 +7,8 @@
     </head>
         
     <body>
+        <script src="public/js/scroll.js"></script>
+
     	<header>
     		<h3><a href="index.php">Jean Forteroche</a></h3>
     		<nav>
@@ -55,6 +57,8 @@
     	<div id="content">
         <?= $content ?>
     	</div>
+
+        <div><a id="b-Back" class="b-Hidden" href="#up"></a></div>
 
     	<footer>
     		<div id="links">
