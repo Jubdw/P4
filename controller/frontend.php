@@ -1,13 +1,14 @@
 <?php
 
-// Chargement des classes
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 
+// fonction PostManager --------------------------------------------------------
+
 function listPosts()
 {
-    $postManager = new Ju\Blog\Model\PostManager(); // Création d'un objet
-    $posts = $postManager->getPosts(); // Appel d'une fonction de cet objet
+    $postManager = new Ju\Blog\Model\PostManager();
+    $posts = $postManager->getPosts();
 
     require('view/frontend/listPostsView.php');
 }
@@ -22,6 +23,16 @@ function post()
 
     require('view/frontend/postView.php');
 }
+
+function welcomePosts()
+{
+    $postManager = new Ju\Blog\Model\PostManager();
+    $posts = $postManager->getWelcomePosts();
+
+    require('view/frontend/homeView.php');
+}
+
+// fonction CommentManager ---------------------------------------------------
 
 function addComment($postId, $author, $comment)
 {
@@ -60,4 +71,16 @@ function changeComment($id, $author, $comment, $postId)
     	$_SESSION['success'] = 'Le commentaire à bien été modifié';
         header('Location: index.php?action=post&id=' . $postId);
     }
+}
+
+// autres fonctions -------------------------------------------------------------
+
+function about()
+{
+    require('view/frontend/aboutView.php');
+}
+
+function contact()
+{
+    require('view/frontend/contactView.php');
 }
