@@ -1,26 +1,23 @@
-<?php $title = 'Mon blog'; ?>
+<?php $title = "Billet simple pour l'alaska"; ?>
 
 <?php ob_start(); ?>
-<h1>Mon super blog !</h1>
-<p>Derniers billets du blog :</p>
-
+<div class="title">
+    <h1>Billet simple pour l'alaska</h1>
+    <h3>Derniers épisodes du roman :</h3>
+</div>
 
 <?php
 while ($data = $posts->fetch())
 {
 ?>
-    <div class="news">
-        <h3>
-            <?= htmlspecialchars($data['title']) ?>
+    <div class="episode">
+        <div class="episode-title">
+            <h2><a href="index.php?action=post&amp;id=<?= $data['id'] ?>"><?= htmlspecialchars($data['title']) ?></a></h2>
             <em>le <?= $data['creation_date_fr'] ?></em>
-        </h3>
-        
-        <p>
-            <?= nl2br(htmlspecialchars($data['content'])) ?>
-            <br />
-            <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Commentaires</a></em>
-        </p>
-    </div>
+        </div><br>
+
+        <p><?= nl2br(htmlspecialchars($data['small_content'])) ?> ... <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Lire la suite</a></em></p>
+    </div><br>
 <?php
 }
 $posts->closeCursor();
