@@ -2,6 +2,7 @@
 
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
+require_once('model/UserManager.php');
 
 // fonction PostManager --------------------------------------------------------
 
@@ -73,7 +74,39 @@ function changeComment($id, $author, $comment, $postId)
     }
 }
 
+// fonctions UserManager
+
+function addUser($name, $password, $email)
+{
+    $userManager = new Ju\Blog\Model\UserManager();
+
+    $checkUsers = $userManager->getUsers();
+
+    if ($_POST['name'] === $data['name'])
+    {
+        throw new Exception('Ce pseudo est déjà pris !');
+    }
+    elseif ($_POST['email'] === $data['email'])
+    {
+        throw new Exception('Cette adresse email est déjà associée à un compte !');
+    }
+    else {
+        $createNew = $userManager->createUser($name, $password, $email);
+
+        if ($createNew === false) {
+            throw new Exception('Impossible de créer l\'utilisateur !');
+        }
+        else {
+            header('Location: index.php');
+        }
+    }
+}
+
 // autres fonctions -------------------------------------------------------------
+function register()
+{
+    require('view/frontend/registerView.php');
+}
 
 function about()
 {
