@@ -16,7 +16,7 @@
 	    			<li><a href="index.php?action=listPosts">Blog</a></li>
 	    			<li><a href="index.php?action=about">À propos</a></li>
 	    			<li><a href="index.php?action=contact">Contact</a></li>
-	    			<li><a href="#">Connexion</a></li>
+	    			<li><a href="index.php?action=register">Connexion</a></li>
 	    		</ul>
     		</nav>
     	</header>
@@ -71,7 +71,7 @@
     		</div>
     		<div id="legal">
     			<p>Copyright © 2019 - Jean Forteroche - Tous droits réservés / Site réalisé par <a href="https://julienbarre.fr">un glandu</a></p>
-    			<p>Plan du site : <a href="index.php">Acceuil</a> | <a href="index.php?action=listPosts">Blog</a> | <a href="index.php?action=about">À propos</a> | <a href="index.php?action=contact">Contact</a> | <a href="#">Connexion</a></p>
+    			<p>Plan du site : <a href="index.php">Acceuil</a> | <a href="index.php?action=listPosts">Blog</a> | <a href="index.php?action=about">À propos</a> | <a href="index.php?action=contact">Contact</a> | <a href="index.php?action=register">Connexion</a></p>
     		</div>
     	</footer>
 
