@@ -16,7 +16,19 @@
 	    			<li><a href="index.php?action=listPosts">Blog</a></li>
 	    			<li><a href="index.php?action=about">À propos</a></li>
 	    			<li><a href="index.php?action=contact">Contact</a></li>
-	    			<li><a href="index.php?action=register">Connexion</a></li>
+                    <?php 
+                    if (isset($_SESSION['id']) AND isset($_SESSION['name'])) {
+                        ?>
+                        <li><a href="#"><?php echo $_SESSION['name'] ?></a></li>
+                        <li><a href="index.php?action=logout">Déconnexion</a></li>
+                        <?php
+                    }
+                    else {
+                        ?>
+                        <li><a href="index.php?action=register">Connexion</a></li>
+                        <?php
+                    }
+                    ?>	    			
 	    		</ul>
     		</nav>
     	</header>
@@ -71,7 +83,7 @@
     		</div>
     		<div id="legal">
     			<p>Copyright © 2019 - Jean Forteroche - Tous droits réservés / Site réalisé par <a href="https://julienbarre.fr">un glandu</a></p>
-    			<p>Plan du site : <a href="index.php">Acceuil</a> | <a href="index.php?action=listPosts">Blog</a> | <a href="index.php?action=about">À propos</a> | <a href="index.php?action=contact">Contact</a> | <a href="index.php?action=register">Connexion</a></p>
+    			<p>Plan du site : <a href="index.php">Acceuil</a> | <a href="index.php?action=listPosts">Blog</a> | <a href="index.php?action=about">À propos</a> | <a href="index.php?action=contact">Contact</a> | <?php if (isset($_SESSION['id']) AND isset($_SESSION['name'])) { ?><a href="#"><?php echo $_SESSION['name'] ?></a> | <a href="index.php?action=logout">Déconnexion</a><?php } else { ?><a href="index.php?action=register">Connexion</a><?php }?></p>
     		</div>
     	</footer>
 
