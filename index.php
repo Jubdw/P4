@@ -50,6 +50,17 @@ try {
                 throw new Exception('Aucun identifiant de commentaire envoyé');
             }
         }
+        elseif ($_GET['action'] == 'login') {
+            if (!empty($_POST['name']) && !empty($_POST['password'])) {
+                connect($_POST['name']);
+            }
+            else {
+                throw new Exception('Nom et/ou mot de passe non-transmis...');
+            }
+        }
+        elseif ($_GET['action'] == 'logout') {
+            disconnect();
+        }
         elseif ($_GET['action'] == 'registerUser') {
             if (!empty($_POST['password']) && !empty($_POST['password_check']) && $_POST['password'] == $_POST['password_check']) {
                 if (preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $_POST['email'])) {
