@@ -81,24 +81,25 @@ function addUser($name, $password, $email)
     $userManager = new Ju\Blog\Model\UserManager();
 
     $checkUsers = $userManager->getUsers();
-
-    if ($_POST['name'] === $data['name'])
+    while ($data = $checkUsers->fetch())
     {
-        throw new Exception('Ce pseudo est déjà pris !');
+        if ($_POST['name'] === $data['name'])
+        {
+            throw new Exception('Ce pseudo est déjà pris !');
+        }
+        elseif ($_POST['email'] === $data['email'])
+        {
+            throw new Exception('Cette adresse email est déjà associée à un compte !');
+        }
     }
-    elseif ($_POST['email'] === $data['email'])
-    {
-        throw new Exception('Cette adresse email est déjà associée à un compte !');
+
+    $createNew = $userManager->createUser($name, $password, $email);
+
+    if ($createNew === false) {
+        throw new Exception('Impossible de créer l\'utilisateur !');
     }
     else {
-        $createNew = $userManager->createUser($name, $password, $email);
-
-        if ($createNew === false) {
-            throw new Exception('Impossible de créer l\'utilisateur !');
-        }
-        else {
-            header('Location: index.php');
-        }
+        header('Location: index.php');
     }
 }
 
