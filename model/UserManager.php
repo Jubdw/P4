@@ -14,6 +14,16 @@ class UserManager extends Manager
 		return $req;
 	}
 
+	public function connectUser($name)
+	{
+		$db = $this->dbConnect();
+		$req = $db->prepare('SELECT id, password FROM users WHERE name = ?');
+		$req->execute([$name]);
+		$userData = $req->fetch();
+		
+		return $userData;
+	}
+
 	public function createUser($name, $password, $email)
 	{
 		$db = $this->dbConnect();
