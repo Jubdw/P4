@@ -69,12 +69,43 @@ function changeComment($id, $author, $comment, $postId)
         throw new Exception('Impossible de modifier le commentaire !');
     }
     else {
-    	$_SESSION['success'] = 'Le commentaire à bien été modifié';
         header('Location: index.php?action=post&id=' . $postId);
     }
 }
 
 // fonctions UserManager
+
+function connect($name)
+{
+    $userManager = new Ju\Blog\Model\UserManager();
+
+    $checkPass = $userManager->connectUser($name);
+
+    $isPassCorrect = password_verify($_POST['password'], $checkPass['password']);
+
+    if (!$checkPass)
+    {
+        throw new Exception('Mauvais identifiant ou mot de passe');
+    }
+    else
+    {
+        if ($isPassCorrect) {
+            $_SESSION['id'] = $checkPass['id'];
+            $_SESSION['name'] = $name;
+            header('Location: index.php');
+        }
+        else {
+            throw new Exception('Mauvais identifiant ou mot de passe');
+        }
+    }
+}
+
+function disconnect()
+{
+    $_SESSION = array();
+    session_destroy();
+    header('Location: index.php');
+}
 
 function addUser($name, $password, $email)
 {
