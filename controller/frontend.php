@@ -59,17 +59,17 @@ function update()
 	require('view/frontend/updateCommentView.php');
 }
 
-function changeComment($id, $author, $comment, $postId)
+function changeComment($id, $comment, $postId)
 {
     $commentManager = new Ju\Blog\Model\CommentManager();
 
-    $affectedLines = $commentManager->updateComment($id, $author, $comment);
+    $affectedLines = $commentManager->updateComment($id, $comment);
 
     if ($affectedLines === false) {
         throw new Exception('Impossible de modifier le commentaire !');
     }
     else {
-        header('Location: index.php?action=post&id=' . $postId);
+        header('Location: index.php?action=post&id=' . $postId . '#comment-section');
     }
 }
 
