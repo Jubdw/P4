@@ -434,11 +434,15 @@ a
     justify-content: flex-start;
     font-size: 1.4em;
 }
-.link-update
+.link-update, .link-report
 {
     width: 90%;
     text-align: right;
     text-decoration: underline;
+}
+.link-report a
+{
+    color: red;
 }
 .line-comment
 {

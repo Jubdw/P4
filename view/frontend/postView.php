@@ -50,7 +50,23 @@ while ($comment = $comments->fetch())
 ?>
     <div class="comment">
         <p><strong><?php echo $comment['user_name'] ?></strong> le <?php echo $comment['comment_date_fr'] ?></p>
-        <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
+        <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p><br>
+        <?php 
+        if (isset($_SESSION['id']) AND isset($_SESSION['name'])) {
+            if ($_SESSION['id'] == $comment['user_id']) 
+            {
+            ?>
+            <div class="link-update"><a href="index.php?action=update&amp;id=<?= $comment['id'] ?>">Modifier</a></div>
+            <?php
+            }
+            else 
+            {
+            ?>
+            <div class="link-report"><a href="#">Signaler</a></div>
+            <?php
+            }
+        }
+        ?>
     </div>
 <?php
 }

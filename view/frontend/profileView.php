@@ -4,10 +4,11 @@ if (isset($_SESSION['id']) AND isset($_SESSION['name'])) {
 		$title = "Votre profil";
 		$u_com = "Vos commentaires";
 	}
-	else {
-		$title = "Profil du membre " . $_GET['name'];
-		$u_com = "Commentaires de " . $_GET['name'];
-	}
+}
+else 
+{
+	$title = "Profil du membre " . $_GET['name'];
+	$u_com = "Commentaires de " . $_GET['name'];
 }
 ?>
 
@@ -42,12 +43,12 @@ if (isset($_SESSION['id']) AND isset($_SESSION['name'])) {
 			<div class="link-update"><a href="index.php?action=update&amp;id=<?= $data['id'] ?>">Modifier</a></div>
 			<?php
 			}
-			else 
-			{
-			?>
-			<a href="#">Signaler</a>
-			<?php
-			}
+		}
+		else 
+		{
+		?>
+		<div class="link-report"><a href="#">Signaler</a></div>
+		<?php
 		}
 		?>
 		<br>
