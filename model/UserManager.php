@@ -14,6 +14,16 @@ class UserManager extends Manager
 		return $req;
 	}
 
+	public function getUser($name)
+	{
+		$db = $this->dbConnect();
+		$req = $db->prepare('SELECT id, email, DATE_FORMAT(register_date, \'%d/%m/%Y\') AS register_date_fr FROM users WHERE name = ?');
+		$req->execute([$name]);
+		$userInfo = $req->fetch();
+
+		return $userInfo;
+	}
+
 	public function connectUser($name)
 	{
 		$db = $this->dbConnect();

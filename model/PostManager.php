@@ -26,10 +26,19 @@ class PostManager extends Manager
     {
         $db = $this->dbConnect();
         $req = $db->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts WHERE id = ?');
-        $req->execute(array($postId));
+        $req->execute([$postId]);
         $post = $req->fetch();
 
         return $post;
     }
 
+    public function getUserCommentedPost($postId)
+    {
+        $b = $this->dbConnect();
+        $req = $db->prepare('SELECT title FROM posts WHERE id = ?');
+        $req->execute([$postId]);
+        $postTitle = $req->fetch();
+
+        return $postTitle;
+    }
 }
