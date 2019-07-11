@@ -1,10 +1,6 @@
 <?php $title = "Jean Forteroche - " . htmlspecialchars($post['title']); ?>
 
 <?php ob_start(); ?>
-<?php 
-if (isset($_SESSION['success'])) : ?>
-    <h3>Le commentaire à bien été modifié</h3>
-<?php endif; ?>
 <div class="title">
     <h1>Billet simple pour l'Alaska</h1>
     <p><a href="index.php?action=listPosts">Retour à la liste des derniers épisodes</a></p>
@@ -21,28 +17,41 @@ if (isset($_SESSION['success'])) : ?>
 </div><br>
 
 <div id="comment-section">
+<?php 
+if (isset($_SESSION['id']) AND isset($_SESSION['name'])) 
+{
+?>
 <h2>Commentaires</h2>
-
+<h4>Écrivez un commentaire en tant que : <?= $_SESSION['name'] ?></h4>
 <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
     <div>
-        <label for="author">Auteur</label><br>
-        <input type="text" id="author" name="author" />
-    </div>
-    <div>
         <label for="comment">Commentaire</label><br>
-        <textarea id="comment" name="comment"></textarea>
+        <textarea id="comment" name="comment" rows="8" cols="40"></textarea>
     </div>
     <div>
         <input type="submit" />
     </div>
 </form>
-
+<?php 
+}
+else
+{
+?>
+<p>Connectez-vous ou inscrivez-vous à l'espace membre pour pouvoir rédiger un commentaire.</p>
+<a href="index.php?action=register">Connexion | Inscription</a>
+<?php 
+}
+?>
+</div>
+<div class="comment-list">
 <?php
 while ($comment = $comments->fetch())
 {
 ?>
-    <div class="comment"><p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?> <a href="index.php?action=update&amp;id=<?= $comment['id'] ?>">Modifier</a></p>
-    <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p></div>
+    <div class="comment">
+        <p><strong><?php echo $comment['user_name'] ?></strong> le <?php echo $comment['comment_date_fr'] ?></p>
+        <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
+    </div>
 <?php
 }
 ?>
@@ -50,4 +59,3 @@ while ($comment = $comments->fetch())
 <?php $content = ob_get_clean(); ?>
 
 <?php require('view/frontend/template.php'); ?>
-<?php unset($_SESSION['success']); ?>
