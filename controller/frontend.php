@@ -35,17 +35,17 @@ function welcomePosts()
 
 // fonction CommentManager ---------------------------------------------------
 
-function addComment($postId, $author, $comment)
+function addComment($postId, $userId, $userName, $comment)
 {
     $commentManager = new Ju\Blog\Model\CommentManager();
 
-    $affectedLines = $commentManager->postComment($postId, $author, $comment);
+    $affectedLines = $commentManager->postComment($postId, $userId, $userName, $comment);
 
     if ($affectedLines === false) {
         throw new Exception('Impossible d\'ajouter le commentaire !');
     }
     else {
-        header('Location: index.php?action=post&id=' . $postId);
+        header('Location: index.php?action=post&id=' . $postId . '#comment-section');
     }
 }
 
@@ -131,6 +131,22 @@ function addUser($name, $password, $email)
     }
     else {
         header('Location: index.php');
+    }
+}
+
+function profile()
+{
+    $userManager = new Ju\Blog\Model\UserManager();
+    $profile = $userManager->getUser($_GET['name']);
+
+    $commentManager = new Ju\Blog\Model\CommentManager();
+    $userComments = $commentManager->getUserComments($profile['id']);
+
+    if ($profile === false) {
+        throw new Exception('Aucun membre enregistré avec ce nom !');
+    }
+    else {
+        require('view/frontend/profileView.php');
     }
 }
 
