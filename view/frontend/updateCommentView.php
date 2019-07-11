@@ -1,27 +1,29 @@
 <?php $title = 'Modifier un commentaire'; ?>
 
 <?php ob_start(); ?>
-<h1>Mon super blog !</h1>
+<div class="titles">
+<h1><?php echo $_SESSION['name'] ?></h1>
 
 <h2>Modifier un commentaire</h2>
+</div>
 
 <?php $onlyComment = $comment->fetch(); ?>
 
+<div class="update-comment">
 <form action="index.php?action=changeComment&amp;id=<?= $_GET['id'] ?>" method="post">
     <div>
-        <label for="author">Auteur</label><br />
-        <input type="text" id="author" name="author" value="<?= htmlspecialchars($onlyComment['author']); ?>" />
-    </div>
-    <div>
-        <label for="comment">Commentaire</label><br />
-        <textarea id="comment" name="comment"><?= nl2br(htmlspecialchars($onlyComment['comment'])); ?></textarea>
+        <label for="comment">Modifiez votre commentaire :</label>
+        <br>
+        <br>
+        <textarea id="comment" name="comment" rows="12" cols="60"><?php echo $onlyComment['comment'] ?></textarea>
         <input type="hidden" name="post_id" value="<?= $onlyComment['post_id']; ?>">
     </div>
+    <br>
     <div>
         <input type="submit" />
     </div>
 </form>
-
+</div>
 <?php $content = ob_get_clean(); ?>
 
 <?php require('view/frontend/template.php'); ?>
