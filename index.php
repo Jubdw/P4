@@ -37,10 +37,10 @@ try {
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
         }
-        elseif ($_GET['action'] == 'changeComment') {
+        elseif ($_GET['action'] == 'updateComment') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if (!empty($_POST['comment'])) {
-                    changeComment($_GET['id'], $_POST['comment'], $_POST['post_id']);
+                    updateComment($_GET['id'], $_POST['comment'], $_POST['post_id']);
                 }
                 else {
                     throw new Exception('Tous les champs ne sont pas remplis !');

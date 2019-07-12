@@ -10,7 +10,7 @@
 <?php $onlyComment = $comment->fetch(); ?>
 
 <div class="update-comment">
-<form action="index.php?action=changeComment&amp;id=<?= $_GET['id'] ?>" method="post">
+<form action="index.php?action=updateComment&amp;id=<?= $_GET['id'] ?>" method="post">
     <div>
         <label for="comment">Modifiez votre commentaire :</label>
         <br>

@@ -1,4 +1,7 @@
 <?php
+use Ju\Blog\Model\PostManager;
+use Ju\Blog\Model\CommentManager;
+use Ju\Blog\Model\UserManager;
 
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
@@ -8,7 +11,7 @@ require_once('model/UserManager.php');
 
 function listPosts()
 {
-    $postManager = new Ju\Blog\Model\PostManager();
+    $postManager = new PostManager();
     $posts = $postManager->getPosts();
 
     require('view/frontend/listPostsView.php');
@@ -16,8 +19,8 @@ function listPosts()
 
 function post()
 {
-    $postManager = new Ju\Blog\Model\PostManager();
-    $commentManager = new Ju\Blog\Model\CommentManager();
+    $postManager = new PostManager();
+    $commentManager = new CommentManager();
 
     $post = $postManager->getPost($_GET['id']);
     $comments = $commentManager->getComments($_GET['id']);
@@ -27,7 +30,7 @@ function post()
 
 function welcomePosts()
 {
-    $postManager = new Ju\Blog\Model\PostManager();
+    $postManager = new PostManager();
     $posts = $postManager->getWelcomePosts();
 
     require('view/frontend/homeView.php');
@@ -37,7 +40,7 @@ function welcomePosts()
 
 function addComment($postId, $userId, $userName, $comment)
 {
-    $commentManager = new Ju\Blog\Model\CommentManager();
+    $commentManager = new CommentManager();
 
     $affectedLines = $commentManager->postComment($postId, $userId, $userName, $comment);
 
@@ -51,7 +54,7 @@ function addComment($postId, $userId, $userName, $comment)
 
 function update()
 {
-	$commentManager = new Ju\Blog\Model\CommentManager();
+	$commentManager = new CommentManager();
 
 	$comment = $commentManager->getComment($_GET['id']);
 	
@@ -59,9 +62,9 @@ function update()
 	require('view/frontend/updateCommentView.php');
 }
 
-function changeComment($id, $comment, $postId)
+function updateComment($id, $comment, $postId)
 {
-    $commentManager = new Ju\Blog\Model\CommentManager();
+    $commentManager = new CommentManager();
 
     $affectedLines = $commentManager->updateComment($id, $comment);
 
@@ -77,7 +80,7 @@ function changeComment($id, $comment, $postId)
 
 function connect($name)
 {
-    $userManager = new Ju\Blog\Model\UserManager();
+    $userManager = new UserManager();
 
     $checkPass = $userManager->connectUser($name);
 
@@ -109,7 +112,7 @@ function disconnect()
 
 function addUser($name, $password, $email)
 {
-    $userManager = new Ju\Blog\Model\UserManager();
+    $userManager = new UserManager();
 
     $checkUsers = $userManager->getUsers();
     while ($data = $checkUsers->fetch())
@@ -136,10 +139,10 @@ function addUser($name, $password, $email)
 
 function profile()
 {
-    $userManager = new Ju\Blog\Model\UserManager();
+    $userManager = new UserManager();
     $profile = $userManager->getUser($_GET['name']);
 
-    $commentManager = new Ju\Blog\Model\CommentManager();
+    $commentManager = new CommentManager();
     $userComments = $commentManager->getUserComments($profile['id']);
 
     if ($profile === false) {
