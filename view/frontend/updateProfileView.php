@@ -1,6 +1,10 @@
 <?php $title = "Modifier votre profil" ?>
 
 <?php ob_start(); ?>
+<div class="title">
+	<h2>Modifiez les informations relatives à votre compte</h2>
+</div>
+
 <div class="edit-profile edit-name">
 	<h3>Modifier votre NOM</h3>
 	<form action="index.php?action=updateName" method="post">
