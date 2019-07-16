@@ -86,6 +86,14 @@ try {
                 throw new Exception('Aucun membre sélectionné !');
             }
         }
+        elseif ($_GET['action'] == 'editProfile') {
+            editProfile();
+        }
+        elseif ($_GET['action'] == 'updateName') {
+            if (!empty($_POST['name'])) {
+                updateName($_SESSION['id'], $_POST['name']);
+            }
+        }
         elseif ($_GET['action'] == 'about') {
             about();
         }
