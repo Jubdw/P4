@@ -1,19 +1,19 @@
 <?php 
 if (isset($_SESSION['id']) AND isset($_SESSION['name'])) {
-	if ($_SESSION['name'] == $_GET['name']) {
+	if ($_SESSION['id'] == $_GET['id']) {
 		$title = "Votre profil";
 		$u_com = "Vos commentaires";
 	}
 	else 
 	{
-		$title = "Profil du membre " . $_GET['name'];
-		$u_com = "Commentaires de " . $_GET['name'];
+		$title = "Profil du membre " . $profile['name'];
+		$u_com = "Commentaires de " . $profile['name'];
 	}
 }
 else 
 {
-	$title = "Profil du membre " . $_GET['name'];
-	$u_com = "Commentaires de " . $_GET['name'];
+	$title = "Profil du membre " . $profile['name'];
+	$u_com = "Commentaires de " . $profile['name'];
 }
 ?>
 
@@ -23,12 +23,12 @@ else
 </div>
 
 <div class="user-profile">
-	<h4>Nom : <?= $_GET['name'] ?></h4>
+	<h4>Nom : <?= $profile['name'] ?></h4>
 	<em><a href="mailto:<?= $profile['email'] ?>">E-mail : <?= $profile['email'] ?></a></em>
 	<em><p>Membre depuis le : <?= $profile['register_date_fr'] ?></p></em>
 	<?php 
 	if (isset($_SESSION['id']) AND isset($_SESSION['name'])) {
-		if ($_SESSION['name'] == $_GET['name']) {
+		if ($_SESSION['id'] == $_GET['id']) {
 			?>
 			<a href="index.php?action=editProfile">Modifier votre profil</a>
 			<?php
@@ -51,7 +51,7 @@ else
 		<p><?= nl2br(htmlspecialchars($data['comment'])) ?></p>
 		<?php 
 		if (isset($_SESSION['id']) AND isset($_SESSION['name'])) {
-			if ($_SESSION['name'] == $_GET['name']) 
+			if ($_SESSION['id'] == $_GET['id']) 
 			{
 			?>
 			<div class="link-update"><a href="index.php?action=update&amp;id=<?= $data['id'] ?>">Modifier</a></div>

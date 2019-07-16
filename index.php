@@ -79,7 +79,7 @@ try {
             register();
         }
         elseif ($_GET['action'] == 'showProfile') {
-            if (isset($_GET['name'])) {
+            if (isset($_GET['id'])) {
                 profile();
             }
             else {
@@ -92,6 +92,9 @@ try {
         elseif ($_GET['action'] == 'updateName') {
             if (!empty($_POST['name'])) {
                 updateName($_SESSION['id'], $_POST['name']);
+            }
+            else {
+                throw new Exception('Aucun nouveau nom envoyé !');
             }
         }
         elseif ($_GET['action'] == 'about') {

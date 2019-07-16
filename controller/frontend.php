@@ -140,13 +140,13 @@ function addUser($name, $password, $email)
 function profile()
 {
     $userManager = new UserManager();
-    $profile = $userManager->getUser($_GET['name']);
+    $profile = $userManager->getUser($_GET['id']);
 
     $commentManager = new CommentManager();
-    $userComments = $commentManager->getUserComments($profile['id']);
+    $userComments = $commentManager->getUserComments($_GET['id']);
 
     if ($profile === false) {
-        throw new Exception('Aucun membre enregistré avec ce nom !');
+        throw new Exception('Ce membre n\'existe pas !');
     }
     else {
         require('view/frontend/profileView.php');
