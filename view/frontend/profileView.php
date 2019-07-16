@@ -26,6 +26,15 @@ else
 	<h4>Nom : <?= $_GET['name'] ?></h4>
 	<em><a href="mailto:<?= $profile['email'] ?>">E-mail : <?= $profile['email'] ?></a></em>
 	<em><p>Membre depuis le : <?= $profile['register_date_fr'] ?></p></em>
+	<?php 
+	if (isset($_SESSION['id']) AND isset($_SESSION['name'])) {
+		if ($_SESSION['name'] == $_GET['name']) {
+			?>
+			<a href="index.php?action=editProfile">Modifier votre profil</a>
+			<?php
+		}
+	}
+	?>
 </div>
 
 <div>
