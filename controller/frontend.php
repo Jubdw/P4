@@ -153,6 +153,36 @@ function profile()
     }
 }
 
+function editProfile()
+{
+    require('view/frontend/updateProfileView.php');
+}
+
+function updateName($id, $name)
+{
+    $userManager = new UserManager();
+
+    $checkUsers = $userManager->getUsers();
+    while ($data = $checkUsers->fetch())
+    {
+        if ($_POST['name'] === $data['name'])
+        {
+            throw new Exception('Ce pseudo est déjà pris !');
+        }
+    }
+
+
+    $updateName = $userManager->editName($id, $name);
+
+    if ($updateName === false) {
+        throw new Exception('Impossible d\'effectuer la modification.');
+    }
+    else {
+        $_SESSION['name'] = $name;
+        header('Location: index.php?action=showProfile&name=' . $name);
+    }
+}
+
 // autres fonctions -------------------------------------------------------------
 function register()
 {
