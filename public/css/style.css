@@ -464,6 +464,10 @@ a
     flex-direction: column;
     justify-content: flex-start;
 }
+.edit-password
+{
+    height: 250px;
+}
 .edit-inputs
 {
     display: flex;
