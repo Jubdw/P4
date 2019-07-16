@@ -42,4 +42,13 @@ class UserManager extends Manager
 		
 		return $createNew;
 	}
+
+	public function editName($id, $name)
+	{
+		$db = $this->dbConnect();
+		$newName = $db->prepare('UPDATE users SET name = ? WHERE id = ?');
+		$edit = $newName->execute([$name, $id]);
+
+		return $edit;
+	}
 }
