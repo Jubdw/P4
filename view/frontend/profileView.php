@@ -24,7 +24,16 @@ else
 
 <div class="user-profile">
 	<h4>Nom : <?= $profile['name'] ?></h4>
-	<em><a href="mailto:<?= $profile['email'] ?>">E-mail : <?= $profile['email'] ?></a></em>
+	<?php 
+	if (isset($_SESSION['id']) AND isset($_SESSION['name'])) {
+		if ($_SESSION['id'] == $_GET['id']) 
+		{
+		?>
+		<em>E-mail : <a href="mailto:<?= $profile['email'] ?>"><?= $profile['email'] ?></a></em>
+		<?php
+		}
+	}
+	?>
 	<em><p>Membre depuis le : <?= $profile['register_date_fr'] ?></p></em>
 	<?php 
 	if (isset($_SESSION['id']) AND isset($_SESSION['name'])) {
