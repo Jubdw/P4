@@ -110,6 +110,15 @@ try {
                 throw new Exception('Aucun nouvel e-mail envoyé !');
             }
         }
+        elseif ($_GET['action'] == 'updatePassword') {
+            if (!empty($_POST['password']) && !empty($_POST['password_check']) && $_POST['password'] == $_POST['password_check']) {
+                $hashed_pass = password_hash($_POST['password'], PASSWORD_DEFAULT);
+                updatePassword($_SESSION['id'], $hashed_pass);
+            }
+            else {
+                throw new Exception('Les mots de passes entrés ne sont pas identiques !');
+            }
+        }
         elseif ($_GET['action'] == 'about') {
             about();
         }

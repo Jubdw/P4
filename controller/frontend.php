@@ -95,7 +95,7 @@ function connect($name)
         if ($isPassCorrect) {
             $_SESSION['id'] = $checkPass['id'];
             $_SESSION['name'] = $name;
-            header('Location: index.php');
+            header('Location: index.php?action=showProfile&id=' . $_SESSION['id']);
         }
         else {
             throw new Exception('Mauvais identifiant ou mot de passe');
@@ -133,7 +133,7 @@ function addUser($name, $password, $email)
         throw new Exception('Impossible de créer l\'utilisateur !');
     }
     else {
-        header('Location: index.php');
+        header('Location: index.php?action=showProfile&id=' . $_SESSION['id']);
     }
 }
 
@@ -199,6 +199,19 @@ function updateEmail($id, $email)
     $updateEmail = $userManager->editEmail($id, $email);
 
     if ($updateEmail === fasle) {
+        throw new Exception('Impossible d\'effectuer la modification.');
+    }
+    else {
+        header('Location: index.php?action=showProfile&id=' . $id);
+    }
+}
+
+function updatePassword($id, $password)
+{
+    $userManager = new UserManager();
+    $updatePassword = $userManager->editPassword($id, $password);
+
+    if ($updatePassword === fasle) {
         throw new Exception('Impossible d\'effectuer la modification.');
     }
     else {

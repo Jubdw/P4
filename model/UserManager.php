@@ -60,4 +60,13 @@ class UserManager extends Manager
 
 		return $edit;
 	}
+
+	public function editPassword($id, $password)
+	{
+		$db = $this->dbConnect();
+		$newEmail = $db->prepare('UPDATE users SET password = ? WHERE id = ?');
+		$edit = $newEmail->execute([$password, $id]);
+
+		return $edit;
+	}
 }
