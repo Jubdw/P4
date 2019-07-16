@@ -97,6 +97,19 @@ try {
                 throw new Exception('Aucun nouveau nom envoyé !');
             }
         }
+        elseif ($_GET['action'] == 'updateEmail') {
+            if (!empty($_POST['email'])) {
+                if (preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $_POST['email'])) {
+                    updateEmail($_SESSION['id'], $_POST['email']);
+                }
+                else {
+                    throw new Exception('L\'adresse email n\'est pas valide !');
+                }
+            }
+            else {
+                throw new Exception('Aucun nouvel e-mail envoyé !');
+            }
+        }
         elseif ($_GET['action'] == 'about') {
             about();
         }

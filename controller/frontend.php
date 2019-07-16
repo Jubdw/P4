@@ -179,7 +179,30 @@ function updateName($id, $name)
     }
     else {
         $_SESSION['name'] = $name;
-        header('Location: index.php?action=showProfile&name=' . $name);
+        header('Location: index.php?action=showProfile&id=' . $id);
+    }
+}
+
+function updateEmail($id, $email)
+{
+    $userManager = new UserManager();
+
+    $checkUsers = $userManager->getUsers();
+    while ($data = $checkUsers->fetch())
+    {
+        if ($_POST['email'] === $data['email'])
+        {
+            throw new Exception('Cet e-mail est déjà associé à un compte !');
+        }
+    }
+
+    $updateEmail = $userManager->editEmail($id, $email);
+
+    if ($updateEmail === fasle) {
+        throw new Exception('Impossible d\'effectuer la modification.');
+    }
+    else {
+        header('Location: index.php?action=showProfile&id=' . $id);
     }
 }
 
