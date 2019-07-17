@@ -79,10 +79,7 @@ else
 		<div class="link-report"><a href="#">Signaler</a></div>
 		<?php
 		}
-		?>
-		<br>
-		<div class="line-comment"></div>
-		<br>	
+		?>	
 	</div>
 	<?php
 	}

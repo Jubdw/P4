@@ -201,7 +201,6 @@ a
     border: 1px solid black;
     border-radius: 2%;
     background-color: rgba(240,240,240, 0.8);
-    font-size: 1em;
 }
 .comment
 {
@@ -210,6 +209,7 @@ a
     border: 1px solid black;
     border-radius: 2%;
     background-color: rgba(240,240,240, 0.9);
+    font-size: 1em;
 }
 .comment p
 {
@@ -449,7 +449,6 @@ a
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    font-size: 1.4em;
 }
 .link-update, .link-report
 {
