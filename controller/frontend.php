@@ -133,6 +133,9 @@ function addUser($name, $password, $email)
         throw new Exception('Impossible de créer l\'utilisateur !');
     }
     else {
+        $connectNewUser = $userManager->connectUser($name);
+        $_SESSION['id'] = $connectNewUser['id'];
+        $_SESSION['name'] = $name;
         header('Location: index.php?action=showProfile&id=' . $_SESSION['id']);
     }
 }
