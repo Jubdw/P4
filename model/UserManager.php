@@ -9,7 +9,7 @@ class UserManager extends Manager
 	public function getUsers()
 	{
 		$db = $this->dbConnect();
-		$req = $db->query('SELECT id, name, email FROM users');
+		$req = $db->query('SELECT id, name, email, status, DATE_FORMAT(register_date, \'%d/%m/%Y\') AS register_date_fr FROM users');
 
 		return $req;
 	}
@@ -66,6 +66,15 @@ class UserManager extends Manager
 		$db = $this->dbConnect();
 		$newEmail = $db->prepare('UPDATE users SET password = ? WHERE id = ?');
 		$edit = $newEmail->execute([$password, $id]);
+
+		return $edit;
+	}
+
+	public function blockUser($id)
+	{
+		$db = $this->dbConnect();
+		$block = $db->prepare('UPDATE users SET status = "blocked" WHERE id = ?');
+		$edit = $block->execute([$id]);
 
 		return $edit;
 	}

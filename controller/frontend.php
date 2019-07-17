@@ -99,6 +99,11 @@ function connect($name)
             if ($checkPass['status'] == "admin") {
                 header('Location: index.php?action=adminAccess');
             }
+            elseif ($checkPass['status'] == "blocked") {
+                $_SESSION = array();
+                session_destroy();
+                throw new Exception('Votre compte à été bloqué. Comportez-vous mieux !');
+            }
             else {
                 header('Location: index.php?action=showProfile&id=' . $_SESSION['id']);
             }
@@ -231,9 +236,24 @@ function updatePassword($id, $password)
 
 function administer()
 {
+    $userManager = new UserManager();
+    $userManagement = $userManager->getUsers();
+
     require('view/frontend/adminView.php');
 }
 
+function blockedUser($id)
+{
+    $userManager = new UserManager();
+    $blockedUser = $userManager->blockUser($id);
+
+    if ($blockedUser === false) {
+        throw new Exception('Impossible d\'effectuer la modification.');
+    }
+    else {
+        header('Location: index.php?action=adminAccess');
+    }
+}
 // autres fonctions -------------------------------------------------------------
 function register()
 {

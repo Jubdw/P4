@@ -127,6 +127,14 @@ try {
                 throw new Exception('Vous n\'êtes pas autorisé à accéder à cette page.');
             }
         }
+        elseif ($_GET['action'] == 'blockUser') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                blockedUser($_GET['id']);
+            }
+            else {
+                throw new Exception('Aucun utilisateur identifié !');
+            }
+        }
         elseif ($_GET['action'] == 'about') {
             about();
         }
