@@ -95,7 +95,13 @@ function connect($name)
         if ($isPassCorrect) {
             $_SESSION['id'] = $checkPass['id'];
             $_SESSION['name'] = $name;
-            header('Location: index.php?action=showProfile&id=' . $_SESSION['id']);
+            $_SESSION['status'] = $checkPass['status'];
+            if ($checkPass['status'] == "admin") {
+                header('Location: index.php?action=adminAccess');
+            }
+            else {
+                header('Location: index.php?action=showProfile&id=' . $_SESSION['id']);
+            }
         }
         else {
             throw new Exception('Mauvais identifiant ou mot de passe');
@@ -136,6 +142,7 @@ function addUser($name, $password, $email)
         $connectNewUser = $userManager->connectUser($name);
         $_SESSION['id'] = $connectNewUser['id'];
         $_SESSION['name'] = $name;
+        $_SESSION['status'] = $connectNewUser['status'];
         header('Location: index.php?action=showProfile&id=' . $_SESSION['id']);
     }
 }
@@ -220,6 +227,11 @@ function updatePassword($id, $password)
     else {
         header('Location: index.php?action=showProfile&id=' . $id);
     }
+}
+
+function administer()
+{
+    require('view/frontend/adminView.php');
 }
 
 // autres fonctions -------------------------------------------------------------

@@ -17,7 +17,7 @@ class UserManager extends Manager
 	public function getUser($id)
 	{
 		$db = $this->dbConnect();
-		$req = $db->prepare('SELECT name, email, DATE_FORMAT(register_date, \'%d/%m/%Y\') AS register_date_fr FROM users WHERE id = ?');
+		$req = $db->prepare('SELECT name, email, status, DATE_FORMAT(register_date, \'%d/%m/%Y\') AS register_date_fr FROM users WHERE id = ?');
 		$req->execute([$id]);
 		$userInfo = $req->fetch();
 
@@ -27,7 +27,7 @@ class UserManager extends Manager
 	public function connectUser($name)
 	{
 		$db = $this->dbConnect();
-		$req = $db->prepare('SELECT id, password FROM users WHERE name = ?');
+		$req = $db->prepare('SELECT id, password, status FROM users WHERE name = ?');
 		$req->execute([$name]);
 		$userData = $req->fetch();
 		

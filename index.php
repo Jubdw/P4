@@ -119,6 +119,14 @@ try {
                 throw new Exception('Les mots de passes entrés ne sont pas identiques !');
             }
         }
+        elseif ($_GET['action'] == 'adminAccess') {
+            if ($_SESSION['status'] == "admin") {
+                administer();
+            }
+            else {
+                throw new Exception('Vous n\'êtes pas autorisé à accéder à cette page.');
+            }
+        }
         elseif ($_GET['action'] == 'about') {
             about();
         }
