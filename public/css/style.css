@@ -521,6 +521,32 @@ a
 {
     color: rgb(60,170,210);
 }
+.user-management, .post-management
+{
+    width: 70%;
+    margin: 1% 13%;
+    padding: 1%;
+    border: 1px solid black;
+    border-radius: 2%;
+    background-color: rgba(240,240,240, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+}
+.user-management a, .post-management a
+{
+    font-weight: bold;
+    color: rgb(60,120,180);
+}
+.user-management a:hover, .post-management a:hover
+{
+    text-decoration: underline;
+    color: rgb(40,80,120);
+}
+
+/* ------ USER MANAGEMENT VIEW ------ */
 #user-management
 {
     position: relative;
@@ -583,36 +609,68 @@ a
     text-decoration: underline;
     color: rgb(40,80,120);
 }
-/* ------ USER MANAGEMENT VIEW ------ */
 .user-is-admin
 {
     background-color: rgba(200,200,250, 1);
 }
-.user-management
+
+/* ------ POST MANAGEMENT VIEW ------ */
+#post-management
 {
     width: 70%;
     margin: 0 13%;
     padding: 1%;
     border: 1px solid black;
     border-radius: 2%;
-    background-color: rgba(240,240,240, 0.8);
+    background-color: rgba(250,250,250, 1);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 1.2em;
 }
-.user-management a
+.post-admin-list
 {
-    font-weight: bold;
-    color: rgb(60,120,180);
+    width: 90%;
+    margin-bottom: 6px;
+    border: 1px solid black;
+    border-radius: 2%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
-.user-management a:hover
+.small-post
 {
-    text-decoration: underline;
-    color: rgb(40,80,120);
+    width: 70%;
+    padding: 2%;
 }
-
+.post-manage
+{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.post-edit, .post-delete
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    margin: 2px 0;
+    border: 1px solid black;
+    border-radius: 2%;
+}
+.post-edit
+{
+    background-color: rgb(200,200,255);
+}
+.post-delete
+{
+    background-color: rgb(200,140,140);
+}
 /* ------ SCROLL BUTTON ------ */
 a#b-Back{
   border-radius:3px;
