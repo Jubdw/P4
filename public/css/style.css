@@ -521,7 +521,7 @@ a
 {
     color: rgb(60,170,210);
 }
-.user-management, .post-management
+.user-management, .post-management, .comment-management
 {
     width: 70%;
     margin: 1% 13%;
@@ -535,12 +535,12 @@ a
     align-items: center;
     font-size: 1.2em;
 }
-.user-management a, .post-management a
+.user-management a, .post-management a, .comment-management a
 {
     font-weight: bold;
     color: rgb(60,120,180);
 }
-.user-management a:hover, .post-management a:hover
+.user-management a:hover, .post-management a:hover, .comment-management a:hover
 {
     text-decoration: underline;
     color: rgb(40,80,120);
@@ -614,11 +614,11 @@ a
     background-color: rgba(200,200,250, 1);
 }
 
-/* ------ POST MANAGEMENT VIEW ------ */
-#post-management
+/* ------ POST MANAGEMENT VIEW + COMMENT MANAGEMENT VIEW ------ */
+#post-management, #comment-management, #reported-comment-manage
 {
     width: 70%;
-    margin: 0 13%;
+    margin: 0 13% 2% 13%;
     padding: 1%;
     border: 1px solid black;
     border-radius: 2%;
@@ -628,7 +628,7 @@ a
     justify-content: center;
     align-items: center;
 }
-.post-admin-list
+.post-admin-list, .comment-admin-list
 {
     width: 90%;
     margin-bottom: 6px;
@@ -638,6 +638,30 @@ a
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+.comment-admin-list
+{
+    justify-content: space-between;
+}
+.admin-comment
+{
+    padding: 4px;
+}
+.comment-block
+{
+    margin: 2px 2px;
+    padding: 1%;
+    width: 60px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    background-color: rgb(200,140,140);
+}
+.reported
+{
+    background-color: rgb(220,135,135);
 }
 .small-post
 {
@@ -671,6 +695,7 @@ a
 {
     background-color: rgb(200,140,140);
 }
+
 /* ------ SCROLL BUTTON ------ */
 a#b-Back{
   border-radius:3px;
