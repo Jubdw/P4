@@ -15,7 +15,7 @@
 </div>
 
 <div class="comment-management">
-	
+	<a href="index.php?action=commentManagement">Gestion des commentaires</a>
 </div>
 
 <div class="user-management">
