@@ -50,6 +50,14 @@ try {
                 throw new Exception('Aucun identifiant de commentaire envoyé');
             }
         }
+        elseif ($_GET['action'] == 'reportComment') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                reportComment($_GET['id']);
+            }
+            else {
+                throw new Exception('Aucun identifiant de commentaire envoyé');
+            }
+        }
         elseif ($_GET['action'] == 'login') {
             if (!empty($_POST['name']) && !empty($_POST['password'])) {
                 connect($_POST['name']);
@@ -140,6 +148,25 @@ try {
         }
         elseif ($_GET['action'] == 'postManagement') {
             smallPosts();
+        }
+        elseif ($_GET['action'] == 'commentManagement') {
+            listAdminComments();
+        }
+        elseif ($_GET['action'] == 'blockComment') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                blockComment($_GET['id']);
+            }
+            else {
+                throw new Exception('Aucun commentaire identifié !');
+            }
+        }
+        elseif ($_GET['action'] == 'deBlockComment') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                deBlockComment($_GET['id']);
+            }
+            else {
+                throw new Exception('Aucun commentaire identifié !');
+            }
         }
         elseif ($_GET['action'] == 'about') {
             about();
