@@ -138,6 +138,9 @@ try {
                 throw new Exception('Aucun utilisateur identifié !');
             }
         }
+        elseif ($_GET['action'] == 'postManagement') {
+            smallPosts();
+        }
         elseif ($_GET['action'] == 'about') {
             about();
         }
