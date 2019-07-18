@@ -236,9 +236,6 @@ function updatePassword($id, $password)
 
 function administer()
 {
-    $userManager = new UserManager();
-    $userManagement = $userManager->getUsers();
-
     require('view/frontend/adminView.php');
 }
 
@@ -253,6 +250,14 @@ function blockedUser($id)
     else {
         header('Location: index.php?action=adminAccess');
     }
+}
+
+function manageUser()
+{
+    $userManager = new UserManager();
+    $userManagement = $userManager->getUsers();
+    
+    require('view/backend/userManagementView.php');
 }
 // autres fonctions -------------------------------------------------------------
 function register()
