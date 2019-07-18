@@ -236,7 +236,7 @@ function updatePassword($id, $password)
 
 function administer()
 {
-    require('view/frontend/adminView.php');
+    require('view/backend/adminView.php');
 }
 
 function blockedUser($id)
@@ -256,7 +256,7 @@ function manageUser()
 {
     $userManager = new UserManager();
     $userManagement = $userManager->getUsers();
-    
+
     require('view/backend/userManagementView.php');
 }
 // autres fonctions -------------------------------------------------------------
