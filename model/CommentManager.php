@@ -51,4 +51,54 @@ class CommentManager extends Manager
         return $affectedLines;
     }
 
+    public function getNoReportComments()
+    {
+        $db = $this->dbConnect();
+        $req = $db->query('SELECT id, post_id, user_id, user_name, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, blocked FROM comments WHERE reported = "0"');
+
+        return $req;
+    }
+
+    public function getReportedComments()
+    {
+        $db = $this->dbConnect();
+        $req = $db->query('SELECT id, post_id, user_id, user_name, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, blocked FROM comments WHERE reported = "1"');
+
+        return $req;
+    }
+
+    public function reportComment($id)
+    {
+        $db = $this->dbConnect();
+        $comment = $db->prepare('UPDATE comments SET reported = "1" WHERE id = ?');
+        $affectedLines = $comment->execute([$id]);
+
+        return $affectedLines;
+    }
+
+    public function getBlockedComments()
+    {
+        $db = $this->dbConnect();
+        $req = $db->query('SELECT id, post_id, user_id, user_name, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, reported FROM comments WHERE blocked = "1"');
+
+        return $req;
+    }
+
+    public function blockComment($id)
+    {
+        $db = $this->dbConnect();
+        $comment = $db->prepare('UPDATE comments SET blocked = "1" WHERE id = ?');
+        $affectedLines = $comment->execute([$id]);
+
+        return $affectedLines;
+    }
+
+    public function deBlockComment($id)
+    {
+        $db = $this->dbConnect();
+        $comment = $db->prepare('UPDATE comments SET blocked = "0" WHERE id = ?');
+        $affectedLines = $comment->execute([$id]);
+
+        return $affectedLines;
+    }
 }
