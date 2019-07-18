@@ -1,22 +1,12 @@
-<?php $title = "Administration du site - Bonjour M.Forteroche"; ?>
+<?php $title = "Gestion des utilisateurs"; ?>
 
 <?php ob_start(); ?>
 
-<script src="public/js/hide.js"></script>
 <div class="title">
-	<h3>Bienvenue sur la page d'aministration, M.Forteroche</h3>
-</div>
-
-<div class="new-post">
-	<h4>Ajoutez ici un nouveau chapitre au blog :</h4>
-</div>
-
-<div class="post-management">
-	<h4>Gestion des chapitres :</h4>
+	<h2>Gestion des utilisateurs :</h2>
 </div>
 
 <div id="user-management">
-	<h4>Gestion des utilisateurs :</h4>
 	<?php 
 	while ($users = $userManagement->fetch())
 	{
@@ -27,15 +17,23 @@
 		<p><a href="mailto:<?= $users['email'] ?>"><?= $users['email'] ?></a></p>
 		<p>Status : <?= $users['status'] ?></p>
 		<?php 
-		if ($users['status'] != "blocked") 
+		if ($users['status'] === "admin") 
+		{
+		?>
+		<div class="user-is-admin">
+			<a href="index.php?action=showProfile&amp;id=<?= $users['id'] ?>">Aller sur votre profil</a>
+		</div>
+		<?php
+		}
+		elseif ($users['status'] === "user")
 		{
 		?>
 		<div class="user-delete">
 			<a href="index.php?action=blockUser&amp;id=<?= $users['id'] ?>">Bloquer</a>
 		</div>
-		<?php
+		<?php 
 		}
-		else 
+		elseif ($users['status'] === "blocked")
 		{
 		?>
 		<div class="user-delete">
@@ -48,11 +46,6 @@
 	<?php 
 	}
 	?>
-</div>
-
-<div class="comment-management">
-	<h4>Gestion des commentaires :</h4>
-	<em>Les commentaires les plus signalés par les utilisateurs sont affichés en premiers.</em>
 </div>
 
 <?php $content = ob_get_clean(); ?>
