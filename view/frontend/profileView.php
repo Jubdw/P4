@@ -69,14 +69,14 @@ else
 			else 
 			{
 			?>
-			<div class="link-report"><a href="#">Signaler</a></div>
+			<div class="link-report"><a href="index.php?action=reportComment&amp;id=<?= $comment['id'] ?>">Signaler</a></div>
 			<?php
 			}
 		}
 		else 
 		{
 		?>
-		<div class="link-report"><a href="#">Signaler</a></div>
+		<div class="link-report"><a href="index.php?action=reportComment&amp;id=<?= $comment['id'] ?>">Signaler</a></div>
 		<?php
 		}
 		?>	
