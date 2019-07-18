@@ -234,6 +234,7 @@ function updatePassword($id, $password)
     }
 }
 
+// fonctions ADMIN --------------------------------------------------------------
 function administer()
 {
     require('view/backend/adminView.php');
@@ -259,6 +260,16 @@ function manageUser()
 
     require('view/backend/userManagementView.php');
 }
+
+function smallPosts()
+{
+    $postManager = new PostManager();
+    $posts_small = $postManager->getSmallPosts();
+
+    require('view/backend/postManagementView.php');
+}
+
+
 // autres fonctions -------------------------------------------------------------
 function register()
 {
