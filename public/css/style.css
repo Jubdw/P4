@@ -513,6 +513,14 @@ a
     text-align: center;
 }
 /* ------ ------ ------ ------ ADMIN VIEW ------ ------ ------ ------ */
+.admin-link a
+{
+    color: rgb(150,220,240);
+}
+.admin-link a:hover
+{
+    color: rgb(60,170,210);
+}
 #user-management
 {
     position: relative;

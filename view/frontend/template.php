@@ -22,6 +22,11 @@
                         <li><a href="index.php?action=showProfile&amp;id=<?= $_SESSION['id'] ?>"><?php echo $_SESSION['name'] ?></a></li>
                         <li><a href="index.php?action=logout">Déconnexion</a></li>
                         <?php
+                        if (isset($_SESSION['status']) AND $_SESSION['status'] === "admin") {
+                        ?>
+                        <li class="admin-link"><a href="index.php?action=adminAccess">Administration du site</a></li>
+                        <?php
+                        }
                     }
                     else {
                         ?>
