@@ -11,16 +11,15 @@
 </div>
 
 <div class="post-management">
-	<h4>Gestion des chapitres :</h4>
+	<a href="index.php?action=postManagement">Gestion des chapitres</a>
+</div>
+
+<div class="comment-management">
+	
 </div>
 
 <div class="user-management">
 	<a href="index.php?action=userManagement">Gestion des utilisateurs</a>
-</div>
-
-<div class="comment-management">
-	<h4>Gestion des commentaires :</h4>
-	<em>Les commentaires les plus signalés par les utilisateurs sont affichés en premiers.</em>
 </div>
 
 <?php $content = ob_get_clean(); ?>
