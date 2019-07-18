@@ -270,6 +270,64 @@ function smallPosts()
 }
 
 
+
+
+function listAdminComments()
+{
+    $commentManager = new CommentManager();
+
+    $noReportComments = $commentManager->getNoReportComments();
+
+    $reportedComments = $commentManager->getReportedComments();
+
+    $blockedComments = $commentManager->getBlockedComments();
+
+    require('view/backend/commentManagementView.php');
+}
+
+function reportComment($id)
+{
+    $commentManager = new CommentManager();
+    $reportedComment = $commentManager->reportComment($id);
+
+    $req = $commentManager->getComment($id);
+    $commentedPost = $req->fetch();
+
+    if ($reportedComment === false) {
+        throw new Exception('Impossible d\'effectuer la modification.');
+    }
+    else {
+        header('Location: index.php?action=post&id=' . $commentedPost['post_id']);
+    }
+}
+
+function blockComment($id)
+{
+    $commentManager = new CommentManager();
+    $blockedComment = $commentManager->blockComment($id);
+
+    if ($blockedComment === false) {
+        throw new Exception('Impossible d\'effectuer la modification.');
+    }
+    else {
+        header('Location: index.php?action=commentManagement');
+    }
+}
+
+function deBlockComment($id)
+{
+    $commentManager = new CommentManager();
+    $deBlockedComment = $commentManager->deBlockComment($id);
+
+    if ($deBlockedComment === false) {
+        throw new Exception('Impossible d\'effectuer la modification.');
+    }
+    else {
+        header('Location: index.php?action=commentManagement');
+    }
+}
+
+
 // autres fonctions -------------------------------------------------------------
 function register()
 {
