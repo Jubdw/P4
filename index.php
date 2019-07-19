@@ -146,6 +146,14 @@ try {
                 throw new Exception('Aucun utilisateur identifié !');
             }
         }
+        elseif ($_GET['action'] == 'unblockUser') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                unblockUser($_GET['id']);
+            }
+            else {
+                throw new Exception('Aucun utilisateur identifié !');
+            }
+        }
         elseif ($_GET['action'] == 'postManagement') {
             smallPosts();
         }
