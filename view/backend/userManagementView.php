@@ -4,6 +4,7 @@
 
 <div class="title">
 	<h2>Gestion des utilisateurs :</h2>
+	<a href="index.php?action=adminAccess">Retour à l'acceuil admin</a>
 </div>
 
 <div id="user-management">
@@ -37,7 +38,7 @@
 		{
 		?>
 		<div class="user-delete">
-			<p><em>Compte bloqué</em></p>
+			<a href="index.php?action=unblockUser&amp;id=<?= $users['id'] ?>">Débloquer</a>
 		</div>
 		<?php 
 		}
