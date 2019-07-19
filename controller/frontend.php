@@ -249,7 +249,20 @@ function blockedUser($id)
         throw new Exception('Impossible d\'effectuer la modification.');
     }
     else {
-        header('Location: index.php?action=adminAccess');
+        header('Location: index.php?action=userManagement');
+    }
+}
+
+function unblockUser($id)
+{
+    $userManager = new UserManager();
+    $unblockedUser = $userManager->unblockUser($id);
+
+    if ($unblockedUser === false) {
+        throw new Exception('Impossible d\'effectuer la modification.');
+    }
+    else {
+        header('Location: index.php?action=userManagement');
     }
 }
 
