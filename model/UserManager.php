@@ -78,4 +78,13 @@ class UserManager extends Manager
 
 		return $edit;
 	}
+
+	public function unblockUser($id)
+	{
+		$db = $this->dbConnect();
+		$unblock = $db->prepare('UPDATE users SET status = "user" WHERE id = ?');
+		$edit = $unblock->execute([$id]);
+
+		return $edit;
+	}
 }
