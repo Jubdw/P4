@@ -47,7 +47,9 @@
 <?php
 while ($comment = $comments->fetch())
 {
-?>
+    if ($comment['blocked'] === '0') 
+    {
+    ?>
     <div class="comment">
         <p><strong><a href="index.php?action=showProfile&amp;id=<?= $comment['user_id'] ?>"><?php echo $comment['user_name'] ?></a></strong> le <?php echo $comment['comment_date_fr'] ?></p>
         <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
@@ -68,10 +70,12 @@ while ($comment = $comments->fetch())
         }
         ?>
     </div>
-<?php
+    <?php
+    }    
 }
 ?>
 </div>
+
 <?php $content = ob_get_clean(); ?>
 
 <?php require('view/frontend/template.php'); ?>
