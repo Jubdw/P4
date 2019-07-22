@@ -249,7 +249,7 @@ function blockedUser($id)
         throw new Exception('Impossible d\'effectuer la modification.');
     }
     else {
-        header('Location: index.php?action=userManagement');
+        header('Location: index.php?action=userManagement&page=1');
     }
 }
 
@@ -262,14 +262,27 @@ function unblockUser($id)
         throw new Exception('Impossible d\'effectuer la modification.');
     }
     else {
-        header('Location: index.php?action=userManagement');
+        header('Location: index.php?action=userManagement&page=1');
     }
 }
 
-function manageUser()
+function manageUser($page)
 {
     $userManager = new UserManager();
-    $userManagement = $userManager->getUsers();
+
+    $countU = $userManager->countUsers();
+    $userNb = $countU['userNb'];
+    $perPage = 5;
+    $maxPages = ceil($userNb/$perPage);
+    if ($page <= $maxPages) {
+        $currentPage = $page;
+    }
+    else {
+        $currentPage = 1;
+    }
+    $start = (($currentPage - 1) * $perPage);
+
+    $userManagement = $userManager->getUsersPaged($start, $perPage);
 
     require('view/backend/userManagementView.php');
 }
