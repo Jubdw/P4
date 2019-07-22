@@ -136,7 +136,12 @@ try {
             }
         }
         elseif ($_GET['action'] == 'userManagement') {
-            manageUser();
+            if (isset($_GET['page']) && $_GET['page'] > 0) {
+                manageUser($_GET['page']);
+            }
+            else {
+                throw new Exception('Ne modifiez pas l\'url de la page si c\'est pour y écrire n\'importe quoi !...');
+            }
         }
         elseif ($_GET['action'] == 'blockUser') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
