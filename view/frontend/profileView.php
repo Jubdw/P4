@@ -1,17 +1,9 @@
 <?php 
-if (isset($_SESSION['id']) AND isset($_SESSION['name'])) {
-	if ($_SESSION['id'] == $_GET['id']) {
-		$title = "Votre profil";
-		$u_com = "Vos commentaires";
-	}
-	else 
-	{
-		$title = "Profil du membre " . $profile['name'];
-		$u_com = "Commentaires de " . $profile['name'];
-	}
+if (isset($_SESSION['id']) && $_SESSION['id'] == $_GET['id']) {
+	$title = "Votre profil";
+	$u_com = "Vos commentaires";
 }
-else 
-{
+if (!isset($_SESSION['id']) || $_SESSION['id'] != $_GET['id']) {
 	$title = "Profil du membre " . $profile['name'];
 	$u_com = "Commentaires de " . $profile['name'];
 }
@@ -59,27 +51,17 @@ else
 		<em><strong>Le <?= $data['comment_date_fr'] ?></strong></em>
 		<p><?= nl2br(htmlspecialchars($data['comment'])) ?></p>
 		<?php 
-		if (isset($_SESSION['id']) AND isset($_SESSION['name'])) {
-			if ($_SESSION['id'] == $_GET['id']) 
-			{
+		if (isset($_SESSION['id']) && $_SESSION['id'] == $_GET['id']) {
 			?>
 			<div class="link-update"><a href="index.php?action=update&amp;id=<?= $data['id'] ?>">Modifier</a></div>
 			<?php
-			}
-			else 
-			{
+		}
+		if (!isset($_SESSION['id']) || $_SESSION['id'] != $_GET['id']) {
 			?>
-			<div class="link-report"><a href="index.php?action=reportComment&amp;id=<?= $comment['id'] ?>">Signaler</a></div>
+			<div class="link-report"><a href="index.php?action=reportComment&amp;id=<?= $data['id'] ?>">Signaler</a></div>
 			<?php
-			}
 		}
-		else 
-		{
 		?>
-		<div class="link-report"><a href="index.php?action=reportComment&amp;id=<?= $comment['id'] ?>">Signaler</a></div>
-		<?php
-		}
-		?>	
 	</div>
 	<?php
 	}
