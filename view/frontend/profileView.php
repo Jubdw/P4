@@ -17,23 +17,18 @@ if (!isset($_SESSION['id']) || $_SESSION['id'] != $_GET['id']) {
 <div class="user-profile">
 	<h4>Nom : <?= $profile['name'] ?></h4>
 	<?php 
-	if (isset($_SESSION['id']) AND isset($_SESSION['name'])) {
-		if ($_SESSION['id'] == $_GET['id']) 
-		{
+	if (isset($_SESSION['id']) && $_SESSION['id'] == $_GET['id']) {
 		?>
 		<em>E-mail : <a href="mailto:<?= $profile['email'] ?>"><?= $profile['email'] ?></a></em>
 		<?php
-		}
 	}
 	?>
 	<em><p>Membre depuis le : <?= $profile['register_date_fr'] ?></p></em>
 	<?php 
-	if (isset($_SESSION['id']) AND isset($_SESSION['name'])) {
-		if ($_SESSION['id'] == $_GET['id']) {
-			?>
-			<a href="index.php?action=editProfile">Modifier votre profil</a>
-			<?php
-		}
+	if (isset($_SESSION['id']) && $_SESSION['id'] == $_GET['id']) {
+		?>
+		<a href="index.php?action=editProfile">Modifier votre profil</a>
+		<?php
 	}
 	?>
 </div>
