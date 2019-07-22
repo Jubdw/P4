@@ -19,7 +19,7 @@
 </div>
 
 <div class="user-management">
-	<a href="index.php?action=userManagement">Gestion des utilisateurs</a>
+	<a href="index.php?action=userManagement&amp;page=1">Gestion des utilisateurs</a>
 </div>
 
 <?php $content = ob_get_clean(); ?>
