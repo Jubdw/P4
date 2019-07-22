@@ -614,6 +614,25 @@ a
     background-color: rgba(200,200,250, 1);
 }
 
+.paging
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 2%;
+    border: 1px solid black;
+    border-radius: 2%;
+}
+.current-page, .other-pages
+{
+    font-weight: bold;
+    margin: 0 2px;
+}
+.other-pages
+{
+    text-decoration: underline;
+}
+
 /* ------ POST MANAGEMENT VIEW + COMMENT MANAGEMENT VIEW ------ */
 #post-management, #comment-management, #reported-comment-manage
 {
