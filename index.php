@@ -165,6 +165,9 @@ try {
         elseif ($_GET['action'] == 'commentManagement') {
             listAdminComments();
         }
+        elseif ($_GET['action'] == 'reportedCommentManagement') {
+            listAdminReportedComments();
+        }
         elseif ($_GET['action'] == 'blockComment') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 blockComment($_GET['id']);
