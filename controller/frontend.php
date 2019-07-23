@@ -301,14 +301,18 @@ function smallPosts()
 function listAdminComments()
 {
     $commentManager = new CommentManager();
-
     $noReportComments = $commentManager->getNoReportComments();
 
-    $reportedComments = $commentManager->getReportedComments();
+    require('view/backend/commentManagementView.php');
+}
 
+function listAdminReportedComments()
+{
+    $commentManager = new CommentManager();
+    $reportedComments = $commentManager->getReportedComments();
     $blockedComments = $commentManager->getBlockedComments();
 
-    require('view/backend/commentManagementView.php');
+    require('view/backend/reportedCommentManagementView.php');
 }
 
 function reportComment($id)
