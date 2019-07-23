@@ -74,7 +74,7 @@ class CommentManager extends Manager
     public function getNoReportCommentsPaged($start, $perPage)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('SELECT id, post_id, user_id, user_name, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, blocked FROM comments WHERE reported = "0" ORDER BY id DESC LIMIT :start, :perPage');
+        $req = $db->prepare('SELECT id, post_id, user_id, user_name, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE blocked = "0" AND reported = "0" ORDER BY id DESC LIMIT :start, :perPage');
         $req->bindValue('start', $start, \PDO::PARAM_INT);
         $req->bindValue('perPage', $perPage, \PDO::PARAM_INT);
         $req->execute();
@@ -82,10 +82,42 @@ class CommentManager extends Manager
         return $req;
     }
 
-    public function getReportedComments()
+    public function countReportedComments()
     {
         $db = $this->dbConnect();
-        $req = $db->query('SELECT id, post_id, user_id, user_name, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, blocked FROM comments WHERE reported = "1"');
+        $req = $db->query('SELECT COUNT(id) as reportedCommentNb FROM comments WHERE reported = "1"');
+        $data = $req->fetch();
+
+        return $data;
+    }
+
+    public function getReportedCommentsPaged($start, $perPage)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('SELECT id, post_id, user_id, user_name, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, blocked FROM comments WHERE reported = "1" ORDER BY id DESC LIMIT :start, :perPage');
+        $req->bindValue('start', $start, \PDO::PARAM_INT);
+        $req->bindValue('perPage', $perPage, \PDO::PARAM_INT);
+        $req->execute();
+
+        return $req;
+    }
+
+    public function countBlockedComments()
+    {
+        $db = $this->dbConnect();
+        $req = $db->query('SELECT COUNT(id) as blockedCommentNb FROM comments WHERE blocked = "1"');
+        $data = $req->fetch();
+
+        return $data;
+    }
+
+    public function getBlockedCommentsPaged($bStart, $bPerPage)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('SELECT id, post_id, user_id, user_name, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, reported FROM comments WHERE blocked = "1" ORDER BY id DESC LIMIT :start, :perPage');
+        $req->bindValue('start', $bStart, \PDO::PARAM_INT);
+        $req->bindValue('perPage', $bPerPage, \PDO::PARAM_INT);
+        $req->execute();
 
         return $req;
     }
@@ -101,7 +133,7 @@ class CommentManager extends Manager
     public function blockComment($id)
     {
         $db = $this->dbConnect();
-        $comment = $db->prepare('UPDATE comments SET blocked = "1" WHERE id = ?');
+        $comment = $db->prepare('UPDATE comments SET blocked = "1", reported = "0" WHERE id = ?');
         $affectedLines = $comment->execute([$id]);
 
         return $affectedLines;
