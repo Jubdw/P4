@@ -38,7 +38,7 @@
 			<p><?= $comment['comment'] ?></p>
 		</div>
 		<div class="comment-block">
-			<a href="index.php?action=blockComment&amp;id=<?= $comment['id'] ?>">Bloquer</a>
+			<a href="index.php?action=blockComment&amp;id=<?= $comment['id'] ?>&amp;page=<?= $_GET['page'] ?>">&#128683;</br>Bloquer</br>&#128683;</a>
 		</div>
 	</div>
 	<?php 

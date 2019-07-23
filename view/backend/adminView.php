@@ -18,7 +18,7 @@
 	<a href="index.php?action=commentManagement&amp;page=1">Gestion des commentaires</a>
 </div>
 <div class="comment-management">
-	<a href="index.php?action=reportedCommentManagement&amp;page=1">Gestion des commentaires Signalés & Bloqués</a>
+	<a href="index.php?action=reportedCommentManagement&amp;page=1&amp;bpage=1">Gestion des commentaires Signalés & Bloqués</a>
 </div>
 
 <div class="user-management">
