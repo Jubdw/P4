@@ -44,6 +44,24 @@
     ?>
 </div>
 <div class="comment-list">
+    <div class="paging">
+        <?php 
+        for ($i = 1; $i <= $maxPages; $i++) {
+            if ($i == $currentPage) 
+            {
+            ?>
+            <div class="current-page"><p> <?= $i ?> </p></div>
+            <?php 
+            }
+            else 
+            {
+            ?>
+            <div class="other-pages"><a href="index.php?action=post&id=<?= $_GET['id'] ?>&page=<?= $i ?>#comment-section"> <?= $i ?> </a></div>
+            <?php 
+            }
+        }
+        ?>
+    </div>
 <?php
 while ($comment = $comments->fetch())
 {
@@ -58,13 +76,13 @@ while ($comment = $comments->fetch())
             if ($_SESSION['id'] == $comment['user_id']) 
             {
             ?>
-            <div class="link-update"><a href="index.php?action=update&amp;id=<?= $comment['id'] ?>">Modifier</a></div>
+            <div class="link-update"><a href="index.php?action=update&amp;id=<?= $comment['id'] ?>">&#9997; Modifier &#9997;</a></div>
             <?php
             }
             else 
             {
             ?>
-            <div class="link-report"><a href="index.php?action=reportComment&amp;id=<?= $comment['id'] ?>">Signaler</a></div>
+            <div class="link-report"><a href="index.php?action=reportComment&amp;id=<?= $comment['id'] ?>">&#128683; Signaler &#128683;</a></div>
             <?php
             }
         }

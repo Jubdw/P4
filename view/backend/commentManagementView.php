@@ -8,7 +8,7 @@
 </div>
 
 <div id="comment-management">
-	<h3>Autres commentaires</h3>
+	<h3>Commentaires des utilisateurs</h3>
 	<em>(non-signalés, non bloqués)</em>
 	<div class="paging">
 		<?php 
