@@ -15,10 +15,10 @@
 </div>
 
 <div class="comment-management">
-	<a href="index.php?action=commentManagement">Gestion des commentaires</a>
+	<a href="index.php?action=commentManagement&amp;page=1">Gestion des commentaires</a>
 </div>
 <div class="comment-management">
-	<a href="index.php?action=reportedCommentManagement">Gestion des commentaires Signalés & Bloqués</a>
+	<a href="index.php?action=reportedCommentManagement&amp;page=1">Gestion des commentaires Signalés & Bloqués</a>
 </div>
 
 <div class="user-management">
