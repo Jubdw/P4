@@ -332,11 +332,39 @@ function listAdminComments($page)
     require('view/backend/commentManagementView.php');
 }
 
-function listAdminReportedComments()
+function listAdminReportedComments($page, $bPage)
 {
     $commentManager = new CommentManager();
-    $reportedComments = $commentManager->getReportedComments();
-    $blockedComments = $commentManager->getBlockedComments();
+
+    $countC = $commentManager->countReportedComments();
+    $commentNb = $countC['reportedCommentNb'];
+    $perPage = 8;
+    $maxPages = ceil($commentNb/$perPage);
+    if ($page <= $maxPages) {
+        $currentPage = $page;
+    }
+    else {
+        $currentPage = 1;
+    }
+    $start = (($currentPage - 1) * $perPage);
+
+    $reportedComments = $commentManager->getReportedCommentsPaged($start, $perPage);
+
+
+
+    $bCountC = $commentManager->countBlockedComments();
+    $bCommentNb = $bCountC['blockedCommentNb'];
+    $bPerPage = 8;
+    $bMaxPages = ceil($bCommentNb/$bPerPage);
+    if ($bPage <= $bMaxPages) {
+        $bCurrentPage = $bPage;
+    }
+    else {
+        $bCurrentPage = 1;
+    }
+    $bStart = (($bCurrentPage - 1) * $bPerPage);
+
+    $blockedComments = $commentManager->getBlockedCommentsPaged($bStart, $bPerPage);
 
     require('view/backend/reportedCommentManagementView.php');
 }
@@ -349,8 +377,11 @@ function blockComment($id)
     if ($blockedComment === false) {
         throw new Exception('Impossible d\'effectuer la modification.');
     }
+    elseif (isset($_GET['page']) && isset($_GET['bpage'])) {
+        header('Location: index.php?action=reportedCommentManagement&page=' . $_GET['page'] . '&bpage=' . $_GET['bpage']);
+    }
     else {
-        header('Location: index.php?action=commentManagement');
+        header('Location: index.php?action=commentManagement&page=' . $_GET['page']);
     }
 }
 
@@ -362,8 +393,11 @@ function deBlockComment($id)
     if ($deBlockedComment === false) {
         throw new Exception('Impossible d\'effectuer la modification.');
     }
+    elseif (isset($_GET['page']) && isset($_GET['bpage'])) {
+        header('Location: index.php?action=reportedCommentManagement&page=' . $_GET['page'] . '&bpage=' . $_GET['bpage']);
+    }
     else {
-        header('Location: index.php?action=commentManagement');
+        header('Location: index.php?action=commentManagement&page=' . $_GET['page']);
     }
 }
 
