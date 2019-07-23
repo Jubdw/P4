@@ -51,10 +51,33 @@ class CommentManager extends Manager
         return $affectedLines;
     }
 
-    public function getNoReportComments()
+    public function reportComment($id)
     {
         $db = $this->dbConnect();
-        $req = $db->query('SELECT id, post_id, user_id, user_name, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, blocked FROM comments WHERE reported = "0"');
+        $comment = $db->prepare('UPDATE comments SET reported = "1" WHERE id = ?');
+        $affectedLines = $comment->execute([$id]);
+
+        return $affectedLines;
+    }
+
+/* fonctions admin */
+
+    public function countComments()
+    {
+        $db = $this->dbConnect();
+        $req = $db->query('SELECT COUNT(id) as commentNb FROM comments');
+        $data = $req->fetch();
+
+        return $data;
+    }
+
+    public function getNoReportCommentsPaged($start, $perPage)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('SELECT id, post_id, user_id, user_name, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, blocked FROM comments WHERE reported = "0" ORDER BY id DESC LIMIT :start, :perPage');
+        $req->bindValue('start', $start, \PDO::PARAM_INT);
+        $req->bindValue('perPage', $perPage, \PDO::PARAM_INT);
+        $req->execute();
 
         return $req;
     }
@@ -65,15 +88,6 @@ class CommentManager extends Manager
         $req = $db->query('SELECT id, post_id, user_id, user_name, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, blocked FROM comments WHERE reported = "1"');
 
         return $req;
-    }
-
-    public function reportComment($id)
-    {
-        $db = $this->dbConnect();
-        $comment = $db->prepare('UPDATE comments SET reported = "1" WHERE id = ?');
-        $affectedLines = $comment->execute([$id]);
-
-        return $affectedLines;
     }
 
     public function getBlockedComments()
