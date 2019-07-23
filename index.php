@@ -163,7 +163,12 @@ try {
             smallPosts();
         }
         elseif ($_GET['action'] == 'commentManagement') {
-            listAdminComments();
+            if (isset($_GET['page']) && $_GET['page'] > 0) {
+                listAdminComments($_GET['page']);
+            }
+            else {
+                throw new Exception('Ne modifiez pas l\'url de la page si c\'est pour y écrire n\'importe quoi !...');
+            }
         }
         elseif ($_GET['action'] == 'reportedCommentManagement') {
             listAdminReportedComments();
