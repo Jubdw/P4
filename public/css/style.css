@@ -584,7 +584,12 @@ a
     margin-inline-start: 0;
     margin-inline-end: 0;
 }
-.user-delete, .user-is-admin 
+.big
+{
+    font-weight: bold;
+    font-size: 1.2em;
+}
+.user-not-blocked, .user-blocked, .user-is-admin 
 {
     width: 100px;
     height: 100%;
@@ -593,26 +598,31 @@ a
     left: 101%;
     border: 1px solid black;
     border-radius: 2%;
-    background-color: rgba(250,250,250, 1);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
-.user-delete a, .user-is-admin a
+.user-is-admin a, .user-not-blocked a, .user-blocked a
 {
     font-weight: bold;
-    color: rgb(48,96,142);
 }
-.user-delete a:hover, .user-is-admin a:hover
+.user-is-admin a:hover, .user-not-blocked a:hover, .user-blocked a:hover
 {
     text-decoration: underline;
-    color: rgb(40,80,120);
 }
-.user-is-admin
-{
-    background-color: rgba(200,200,250, 1);
-}
+.user-is-admin { background-color: rgb(105,255,105); }
+.user-is-admin a { color: rgb(120,120,240); }
+.user-is-admin a:hover { color: rgb(24,24,120); }
+
+.user-not-blocked { background-color: rgba(220,220,255, 0.8); }
+.user-not-blocked a { color: rgb(96,24,24); }
+.user-not-blocked a:hover { color: rgb(192,24,24); }
+
+.user-blocked { background-color: rgba(255,180,180, 0.8); }
+.user-blocked a { color: rgb(24,24,96); }
+.user-blocked a:hover { color: rgb(24,48,192); }
 
 .paging
 {
@@ -716,45 +726,53 @@ a
 }
 
 /* ------ SCROLL BUTTON ------ */
-a#b-Back{
-  border-radius:3px;
-  padding:20px;
-  font-size:15px;
-  text-align:center;
-  color:#fff;
-  background:rgba(24,24,24, 0.9);
-  position:fixed;
-  right:20px;
-  opacity:1;
-  z-index:99999;
-  transition:all ease-in 0.2s;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  text-decoration: none;
+a#b-Back
+{
+    border-radius:3px;
+    padding:20px;
+    font-size:15px;
+    text-align:center;
+    color:#fff;
+    background:rgba(24,24,24, 0.9);
+    position:fixed;
+    right:20px;
+    opacity:1;
+    z-index:99999;
+    transition:all ease-in 0.2s;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    text-decoration: none;
 }
-a#b-Back:before{ content: "\25b2"; }
-a#b-Back:hover{
-  background:rgba(0, 0, 0, 1);
-  transition:all ease-in 0.2s;
+a#b-Back:before
+{
+    content: "\25b2";
 }
-a#b-Back.b-Hidden{
-  bottom:-35px;
-  opacity:0;
-  transition:all ease-in 0.5s;
+a#b-Back:hover
+{
+    background:rgba(0, 0, 0, 1);
+    transition:all ease-in 0.2s;
+}
+a#b-Back.b-Hidden
+{
+    bottom:-35px;
+    opacity:0;
+    transition:all ease-in 0.5s;
 }
 
-a#b-Back.b-Visible{
-  bottom:20px;
-  opacity:1;
+a#b-Back.b-Visible
+{
+    bottom:20px;
+    opacity:1;
 }
 
 /* ------ SNOW ANIMATION ------ */
 
-.snowflake {
-  color: #fff;
-  font-size: 1em;
-  font-family: Arial;
-  text-shadow: 0 0 1px #000;
+.snowflake
+{
+    color: #fff;
+    font-size: 1em;
+    font-family: Arial;
+    text-shadow: 0 0 1px #000;
 }
 
 @-webkit-keyframes snowflakes-fall
