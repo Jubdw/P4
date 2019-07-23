@@ -669,29 +669,64 @@ a
     justify-content: center;
     align-items: center;
 }
-.comment-admin-list
+.comment-admin-list /* https://colorzilla.com/gradient-editor */
 {
     justify-content: space-between;
+    background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(229,229,229,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+.comment-admin-list p
+{
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
 }
 .admin-comment
 {
-    padding: 4px;
+    padding: 2px;
 }
-.comment-block
+.comment-block, .comment-unblock
 {
-    margin: 2px 2px;
-    padding: 1%;
-    width: 60px;
-    height: 40px;
+    margin: 4px 8px;
+    padding: 0;
+    min-width: 64px;
+    min-height: 64px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
     border: 1px solid black;
-    background-color: rgb(200,140,140);
+    border-radius: 50%;
+    background-color: rgb(240,160,160);
 }
-.reported
+.comment-block a, .comment-unblock a 
 {
-    background-color: rgb(220,135,135);
+    color: black;
+    font-size: 0.8em;
+}
+.comment-block a:hover, .comment-unblock a:hover
+{
+    text-decoration: underline;
+    font-weight: bold;
+}
+.comment-block:hover { background-color: rgb(240,60,60); }
+.comment-unblock { background-color: rgb(140,190,240); }
+.comment-unblock:hover { background-color: rgb(100,240,120); }
+
+.c-blocked /* https://colorzilla.com/gradient-editor */
+{
+    background: -moz-linear-gradient(top, rgba(235,241,246,1) 0%, rgba(171,211,238,1) 50%, rgba(137,195,235,1) 51%, rgba(213,235,251,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(235,241,246,1) 0%,rgba(171,211,238,1) 50%,rgba(137,195,235,1) 51%,rgba(213,235,251,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(235,241,246,1) 0%,rgba(171,211,238,1) 50%,rgba(137,195,235,1) 51%,rgba(213,235,251,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+.reported /* https://colorzilla.com/gradient-editor */
+{
+    background: -moz-linear-gradient(-45deg, rgba(188,37,40,1) 17%, rgba(188,37,40,1) 24%, rgba(188,37,40,0.58) 56%, rgba(117,23,25,0.34) 74%, rgba(125,185,232,0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, rgba(188,37,40,1) 17%,rgba(188,37,40,1) 24%,rgba(188,37,40,0.58) 56%,rgba(117,23,25,0.34) 74%,rgba(125,185,232,0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, rgba(188,37,40,1) 17%,rgba(188,37,40,1) 24%,rgba(188,37,40,0.58) 56%,rgba(117,23,25,0.34) 74%,rgba(125,185,232,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 .small-post
 {
