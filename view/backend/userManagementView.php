@@ -16,29 +16,29 @@
 		<p><strong><a href="index.php?action=showProfile&amp;id=<?= $users['id'] ?>"><?= $users['name'] ?></a></strong></p>
 		<p>Inscrit(e) depuis le <?= $users['register_date_fr'] ?></p>
 		<p><a href="mailto:<?= $users['email'] ?>"><?= $users['email'] ?></a></p>
-		<p>Status : <?= $users['status'] ?></p>
+		<p>Status : <span class="big"><?= $users['status'] ?></span></p>
 		<?php 
 		if ($users['status'] === "admin") 
 		{
 		?>
 		<div class="user-is-admin">
-			<a href="index.php?action=showProfile&amp;id=<?= $users['id'] ?>">Aller sur votre profil</a>
+			<a href="index.php?action=showProfile&amp;id=<?= $users['id'] ?>">Aller sur votre profil</br>&#127968;</a>
 		</div>
 		<?php
 		}
 		elseif ($users['status'] === "user")
 		{
 		?>
-		<div class="user-delete">
-			<a href="index.php?action=blockUser&amp;id=<?= $users['id'] ?>">Bloquer</a>
+		<div class="user-not-blocked">
+			<a href="index.php?action=blockUser&amp;id=<?= $users['id'] ?>">Bloquer</br>&#128683;</a>
 		</div>
 		<?php 
 		}
 		elseif ($users['status'] === "blocked")
 		{
 		?>
-		<div class="user-delete">
-			<a href="index.php?action=unblockUser&amp;id=<?= $users['id'] ?>">Débloquer</a>
+		<div class="user-blocked">
+			<a href="index.php?action=unblockUser&amp;id=<?= $users['id'] ?>">Débloquer</br>&#128281;</a>
 		</div>
 		<?php 
 		}
