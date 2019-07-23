@@ -9,8 +9,8 @@ try {
             listPosts();
         }
         elseif ($_GET['action'] == 'post') {
-            if (isset($_GET['id']) && $_GET['id'] > 0) {
-                post();
+            if (isset($_GET['id']) && $_GET['id'] > 0 && isset($_GET['page']) && $_GET['page'] > 0) {
+                post($_GET['page']);
             }
             else {
                 throw new Exception('Aucun identifiant de billet envoyé');
