@@ -52,6 +52,22 @@ function addComment($postId, $userId, $userName, $comment)
     }
 }
 
+function reportComment($id)
+{
+    $commentManager = new CommentManager();
+    $reportedComment = $commentManager->reportComment($id);
+
+    $req = $commentManager->getComment($id);
+    $commentedPost = $req->fetch();
+
+    if ($reportedComment === false) {
+        throw new Exception('Impossible d\'effectuer la modification.');
+    }
+    else {
+        header('Location: index.php?action=post&id=' . $commentedPost['post_id']);
+    }
+}
+
 function update()
 {
 	$commentManager = new CommentManager();
@@ -295,13 +311,23 @@ function smallPosts()
     require('view/backend/postManagementView.php');
 }
 
-
-
-
-function listAdminComments()
+function listAdminComments($page)
 {
     $commentManager = new CommentManager();
-    $noReportComments = $commentManager->getNoReportComments();
+    
+    $countC = $commentManager->countComments();
+    $commentNb = $countC['commentNb'];
+    $perPage = 10;
+    $maxPages = ceil($commentNb/$perPage);
+    if ($page <= $maxPages) {
+        $currentPage = $page;
+    }
+    else {
+        $currentPage = 1;
+    }
+    $start = (($currentPage - 1) * $perPage);
+
+    $noReportComments = $commentManager->getNoReportCommentsPaged($start, $perPage);
 
     require('view/backend/commentManagementView.php');
 }
@@ -313,22 +339,6 @@ function listAdminReportedComments()
     $blockedComments = $commentManager->getBlockedComments();
 
     require('view/backend/reportedCommentManagementView.php');
-}
-
-function reportComment($id)
-{
-    $commentManager = new CommentManager();
-    $reportedComment = $commentManager->reportComment($id);
-
-    $req = $commentManager->getComment($id);
-    $commentedPost = $req->fetch();
-
-    if ($reportedComment === false) {
-        throw new Exception('Impossible d\'effectuer la modification.');
-    }
-    else {
-        header('Location: index.php?action=post&id=' . $commentedPost['post_id']);
-    }
 }
 
 function blockComment($id)
