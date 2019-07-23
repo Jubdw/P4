@@ -171,7 +171,12 @@ try {
             }
         }
         elseif ($_GET['action'] == 'reportedCommentManagement') {
-            listAdminReportedComments();
+            if (isset($_GET['page']) && $_GET['page'] > 0 && isset($_GET['bpage']) && $_GET['bpage'] > 0) {
+                listAdminReportedComments($_GET['page'], $_GET['bpage']);
+            }
+            else {
+                throw new Exception('Ne modifiez pas l\'url de la page si c\'est pour y écrire n\'importe quoi !...');
+            }
         }
         elseif ($_GET['action'] == 'blockComment') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
