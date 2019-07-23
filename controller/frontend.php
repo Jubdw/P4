@@ -61,7 +61,7 @@ function addComment($postId, $userId, $userName, $comment)
         throw new Exception('Impossible d\'ajouter le commentaire !');
     }
     else {
-        header('Location: index.php?action=post&id=' . $postId . '#comment-section');
+        header('Location: index.php?action=post&id=' . $postId . '&page=1#comment-section');
     }
 }
 

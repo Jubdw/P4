@@ -48,12 +48,12 @@ if (!isset($_SESSION['id']) || $_SESSION['id'] != $_GET['id']) {
 		<?php 
 		if (isset($_SESSION['id']) && $_SESSION['id'] == $_GET['id']) {
 			?>
-			<div class="link-update"><a href="index.php?action=update&amp;id=<?= $data['id'] ?>">Modifier</a></div>
+			<div class="link-update"><a href="index.php?action=update&amp;id=<?= $data['id'] ?>">&#9997; Modifier &#9997;</a></div>
 			<?php
 		}
 		if (!isset($_SESSION['id']) || $_SESSION['id'] != $_GET['id']) {
 			?>
-			<div class="link-report"><a href="index.php?action=reportComment&amp;id=<?= $data['id'] ?>">Signaler</a></div>
+			<div class="link-report"><a href="index.php?action=reportComment&amp;id=<?= $data['id'] ?>">&#128683; Signaler &#128683;</a></div>
 			<?php
 		}
 		?>
