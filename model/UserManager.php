@@ -17,7 +17,7 @@ class UserManager extends Manager
 	public function getUsersPaged($start, $perPage)
 	{
 		$db = $this->dbConnect();
-		$req = $db->prepare('SELECT id, name, email, status, DATE_FORMAT(register_date, \'%d/%m/%Y\') AS register_date_fr FROM users ORDER BY id DESC LIMIT :start, :perPage');
+		$req = $db->prepare('SELECT id, name, email, status, DATE_FORMAT(register_date, \'%d/%m/%Y\') AS register_date_fr FROM users ORDER BY status ASC LIMIT :start, :perPage');
 		$req->bindValue('start', $start, \PDO::PARAM_INT);
 		$req->bindValue('perPage', $perPage, \PDO::PARAM_INT);
 		$req->execute();
