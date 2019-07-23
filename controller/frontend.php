@@ -17,13 +17,26 @@ function listPosts()
     require('view/frontend/listPostsView.php');
 }
 
-function post()
+function post($page)
 {
     $postManager = new PostManager();
     $commentManager = new CommentManager();
 
     $post = $postManager->getPost($_GET['id']);
-    $comments = $commentManager->getComments($_GET['id']);
+
+    $countC = $commentManager->countComments();
+    $commentNb = $countC['commentNb'];
+    $perPage = 6;
+    $maxPages = ceil($commentNb/$perPage);
+    if ($page <= $maxPages) {
+        $currentPage = $page;
+    }
+    else {
+        $currentPage = 1;
+    }
+    $start = (($currentPage - 1) * $perPage);
+
+    $comments = $commentManager->getCommentsPaged($_GET['id'], $start, $perPage);
 
     require('view/frontend/postView.php');
 }
@@ -64,7 +77,7 @@ function reportComment($id)
         throw new Exception('Impossible d\'effectuer la modification.');
     }
     else {
-        header('Location: index.php?action=post&id=' . $commentedPost['post_id']);
+        header('Location: index.php?action=post&id=' . $commentedPost['post_id'] . '&page=1#comment-section');
     }
 }
 
