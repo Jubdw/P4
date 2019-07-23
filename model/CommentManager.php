@@ -6,11 +6,14 @@ require_once("model/Manager.php");
 
 class CommentManager extends Manager
 {
-    public function getComments($postId)
+    public function getCommentsPaged($postId, $start, $perPage)
     {
         $db = $this->dbConnect();
-        $comments = $db->prepare('SELECT id, user_id, user_name, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, blocked FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
-        $comments->execute([$postId]);
+        $comments = $db->prepare('SELECT id, user_id, user_name, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, blocked FROM comments WHERE post_id = :post_id ORDER BY comment_date DESC LIMIT :start, :perPage');
+        $comments->bindValue('start', $start, \PDO::PARAM_INT);
+        $comments->bindValue('perPage', $perPage, \PDO::PARAM_INT);
+        $comments->bindValue('post_id', $postId, \PDO::PARAM_INT);
+        $comments->execute();
 
         return $comments;
     }
@@ -60,8 +63,6 @@ class CommentManager extends Manager
         return $affectedLines;
     }
 
-/* fonctions admin */
-
     public function countComments()
     {
         $db = $this->dbConnect();
@@ -70,6 +71,8 @@ class CommentManager extends Manager
 
         return $data;
     }
+
+/* fonctions admin */
 
     public function getNoReportCommentsPaged($start, $perPage)
     {
