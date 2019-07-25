@@ -2,10 +2,12 @@
 
 <?php ob_start(); ?>
 
-<div class="title">
+<div class="title title-newPostView">
 	<h1>Rédigez un nouvel épisode du roman</h1>
 	<br>
-	<h1>Billet Simple pour l'Alaska</h1>
+	<h2>Billet Simple pour l'Alaska</h2>
+	<br>
+	<a href="index.php?action=adminAccess">Retour à l'acceuil admin</a>
 </div>
 
 <div class="create-new-post">
@@ -14,7 +16,7 @@
 		<br>
 		<input type="text" name="title">
 		<br>
-		<textarea id="tm_new_post" name="content"></textarea>
+		<textarea id="tm_new_post" name="content" rows="40" cols="20"></textarea>
 		<br>
 		<input type="submit" />
 		<br>
