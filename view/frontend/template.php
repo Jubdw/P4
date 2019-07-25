@@ -19,7 +19,7 @@
     		<h3><a href="index.php">Jean Forteroche</a></h3>
     		<nav>
     			<ul>
-	    			<li><a href="index.php?action=listPosts">Blog</a></li>
+	    			<li><a href="index.php?action=listPosts&amp;page=1">Blog</a></li>
 	    			<li><a href="index.php?action=about">À propos</a></li>
 	    			<li><a href="index.php?action=contact">Contact</a></li>
                     <?php 
@@ -94,7 +94,7 @@
     		</div>
     		<div id="legal">
     			<p>Copyright © 2019 - Jean Forteroche - Tous droits réservés / Site réalisé par <a href="https://julienbarre.fr">un glandu</a></p>
-    			<p>Plan du site : <a href="index.php">Acceuil</a> | <a href="index.php?action=listPosts">Blog</a> | <a href="index.php?action=about">À propos</a> | <a href="index.php?action=contact">Contact</a> | <?php if (isset($_SESSION['id']) AND isset($_SESSION['name'])) { ?><a href="index.php?action=showProfile&amp;id=<?= $_SESSION['id'] ?>&amp;page=1"><?php echo $_SESSION['name'] ?></a> | <a href="index.php?action=logout">Déconnexion</a><?php } else { ?><a href="index.php?action=register">Connexion</a><?php }?></p>
+    			<p>Plan du site : <a href="index.php">Acceuil</a> | <a href="index.php?action=listPosts&amp;page=1">Blog</a> | <a href="index.php?action=about">À propos</a> | <a href="index.php?action=contact">Contact</a> | <?php if (isset($_SESSION['id']) AND isset($_SESSION['name'])) { ?><a href="index.php?action=showProfile&amp;id=<?= $_SESSION['id'] ?>&amp;page=1"><?php echo $_SESSION['name'] ?></a> | <a href="index.php?action=logout">Déconnexion</a><?php } else { ?><a href="index.php?action=register">Connexion</a><?php }?></p>
     		</div>
     	</footer>
 
