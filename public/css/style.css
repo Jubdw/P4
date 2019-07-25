@@ -545,6 +545,10 @@ a
     text-align: center;
 }
 /* ------ ------ ------ ------ ADMIN VIEW ------ ------ ------ ------ */
+.admin-title
+{
+    height: 160px;
+}
 .admin-link a
 {
     color: rgb(150,220,240);
@@ -553,10 +557,15 @@ a
 {
     color: rgb(60,170,210);
 }
+.admin-view-posts, .admin-view-comments
+{
+    width: 100%;
+    margin: 0 0 4% 0;
+}
 .user-management, .post-management, .comment-management, .new-post
 {
     width: 70%;
-    margin: 1% 13%;
+    margin: 8px 13%;
     padding: 1%;
     border: 1px solid black;
     border-radius: 2%;
