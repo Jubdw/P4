@@ -269,6 +269,7 @@ function administer()
     require('view/backend/adminView.php');
 }
 
+/* -------------------------------------------------------------------------- USER ----- */
 function blockedUser($id)
 {
     $userManager = new UserManager();
@@ -316,6 +317,7 @@ function manageUser($page)
     require('view/backend/userManagementView.php');
 }
 
+/* -------------------------------------------------------------------------- POST ----- */
 function smallPosts()
 {
     $postManager = new PostManager();
@@ -323,7 +325,24 @@ function smallPosts()
 
     require('view/backend/postManagementView.php');
 }
+function newPost()
+{
+    require('view/backend/createNewPostView.php');
+}
+function addPost($title, $content)
+{
+    $postManager = new PostManager();
+    $newPost = $postManager->addNewPost($title, $content);
 
+    if ($newPost === false) {
+        throw new Exception('Impossible de créer l\'épisode !');
+    }
+    else {
+        header('Location: index.php?action=adminAccess');
+    }
+}
+
+/* -------------------------------------------------------------------------- COMMENT ----- */
 function listAdminComments($page)
 {
     $commentManager = new CommentManager();
