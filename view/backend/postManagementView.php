@@ -5,6 +5,8 @@
 <div class="title">
 	<h2>Gestion des chapitres :</h2>
 	<a href="index.php?action=adminAccess">Retour à l'acceuil admin</a>
+	<br>
+	<a href="index.php?action=newPost">Rédiger un nouveau chapitre</a>
 </div>
 
 <div id ="post-management">
