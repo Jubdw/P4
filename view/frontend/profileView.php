@@ -38,6 +38,24 @@ if (!isset($_SESSION['id']) || $_SESSION['id'] != $_GET['id']) {
 </div>
 
 <div class="user-comments">
+	<div class="paging">
+        <?php 
+        for ($i = 1; $i <= $maxPages; $i++) {
+            if ($i == $currentPage) 
+            {
+            ?>
+            <div class="current-page"><p> <?= $i ?> </p></div>
+            <?php 
+            }
+            else 
+            {
+            ?>
+            <div class="other-pages"><a href="index.php?action=showProfile&id=<?= $_GET['id'] ?>&page=<?= $i ?>"> <?= $i ?> </a></div>
+            <?php 
+            }
+        }
+        ?>
+    </div>
 	<?php 
 	while ($data = $userComments->fetch())
 	{

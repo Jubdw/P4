@@ -69,7 +69,7 @@ while ($comment = $comments->fetch())
     {
     ?>
     <div class="comment">
-        <p><strong><a href="index.php?action=showProfile&amp;id=<?= $comment['user_id'] ?>"><?php echo $comment['user_name'] ?></a></strong> le <?php echo $comment['comment_date_fr'] ?></p>
+        <p><strong><a href="index.php?action=showProfile&amp;id=<?= $comment['user_id'] ?>&amp;page=1"><?php echo $comment['user_name'] ?></a></strong> le <?php echo $comment['comment_date_fr'] ?></p>
         <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
         <?php 
         if (isset($_SESSION['id']) AND isset($_SESSION['name'])) {
