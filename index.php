@@ -87,8 +87,8 @@ try {
             register();
         }
         elseif ($_GET['action'] == 'showProfile') {
-            if (isset($_GET['id'])) {
-                profile();
+            if (isset($_GET['id']) && $_GET['id'] > 0 && isset($_GET['page']) && $_GET['page'] > 0) {
+                profile($_GET['page']);
             }
             else {
                 throw new Exception('Aucun membre sélectionné !');
