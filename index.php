@@ -6,7 +6,12 @@ require('controller/frontend.php');
 try {
     if (isset($_GET['action'])) {
         if ($_GET['action'] == 'listPosts') {
-            listPosts();
+            if (isset($_GET['page']) && $_GET['page'] > 0) {
+                listPosts($_GET['page']);
+            }
+            else {
+                throw new Exception('Ne modifiez pas l\'url SVP');
+            }
         }
         elseif ($_GET['action'] == 'post') {
             if (isset($_GET['id']) && $_GET['id'] > 0 && isset($_GET['page']) && $_GET['page'] > 0) {
