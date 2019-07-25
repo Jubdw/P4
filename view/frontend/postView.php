@@ -1,4 +1,4 @@
-<?php $title = "Jean Forteroche - " . htmlspecialchars($post['title']); ?>
+<?php $title = "Jean Forteroche - " . $post['title']; ?>
 
 <?php ob_start(); ?>
 <div class="title">
@@ -9,11 +9,11 @@
 
 <div class="episode">
     <div class="episode-title">
-        <h2><?= htmlspecialchars($post['title']) ?></h2>
+        <h2><?= $post['title'] ?></h2>
         <em>le <?= $post['creation_date_fr'] ?></em>
     </div><br>
 
-    <p><?= nl2br(htmlspecialchars($post['content'])) ?><br></p>
+    <p><?= nl2br($post['content']) ?><br></p>
 </div><br>
 
 <div id="comment-section">
