@@ -657,6 +657,14 @@ a
 .user-blocked a:hover { color: rgb(24,48,192); }
 
 /* ------ NEW POST VIEW ------ */
+.title-newPostView h1
+{
+    font-size: 2.4em;
+}
+.title-newPostView h2
+{
+    font-size: 1.8em;
+}
 .create-new-post
 {
     width: 80%;
@@ -664,14 +672,21 @@ a
     padding: 1%;
     border: 1px solid black;
     border-radius: 2%;
-    background-color: rgba(250,250,250, 1);
+    background-color: rgba(250,250,250, 0.8);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
-
+.create-new-post form
+{
+    width: 90%;
+}
+.create-new-post input
+{
+    margin-bottom: 6px;
+}
 /* ------ POST MANAGEMENT VIEW + COMMENT MANAGEMENT VIEW ------ */
 #post-management, #comment-management, #reported-comment-manage
 {
