@@ -2,7 +2,7 @@
 
 <?php ob_start(); ?>
 
-<div class="title">
+<div class="title admin-title">
 	<h2>Gestion des commentaires signalés et bloqués:</h2>
 	<a href="index.php?action=adminAccess">Retour à l'acceuil admin</a>
 	<br>
