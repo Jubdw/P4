@@ -30,7 +30,7 @@ class CommentManager extends Manager
     public function getUserComments($userId)
     {
         $db = $this->dbConnect();
-        $userComments = $db->prepare('SELECT id, post_id, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, blocked FROM comments WHERE user_id = ?');
+        $userComments = $db->prepare('SELECT c.id id, c.post_id post_id, c.comment comment, DATE_FORMAT(c.comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, c.blocked blocked, p.title post_title FROM comments c INNER JOIN posts p ON c.post_id = p.id WHERE user_id = ?');
         $userComments->execute([$userId]);
 
         return $userComments;

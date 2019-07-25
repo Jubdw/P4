@@ -39,16 +39,7 @@ class PostManager extends Manager
 
         return $post;
     }
-/* -------------------------------------------------------------- */
-    public function getUserCommentedPost($postId)
-    {
-        $db = $this->dbConnect();
-        $req = $db->prepare('SELECT title FROM posts WHERE id = ?');
-        $req->execute([$postId]);
-        $postTitle = $req->fetch();
 
-        return $postTitle;
-    }
 /* ------------------------------- ADMIN ---------------------------------- */
     public function addNewPost($title, $content)
     {
