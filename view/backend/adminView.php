@@ -7,7 +7,7 @@
 </div>
 
 <div class="new-post">
-	<h4>Ajoutez ici un nouveau chapitre au blog :</h4>
+	<a href="index.php?action=newPost">Rédigez un nouveau chapitre</a>
 </div>
 
 <div class="post-management">
