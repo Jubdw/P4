@@ -28,7 +28,7 @@
 				<a href="index.php?action=postToEdit&amp;id=<?= $posts['id'] ?>">Modifier</a>
 			</div>
 			<div class="post-delete">
-				<a href="index.php?action=deletePost&amp;id=<?= $posts['id'] ?>">Effacer</a>
+				<a href="index.php?action=deletePost&amp;id=<?= $posts['id'] ?>" onclick="return(confirm('Cette action est définitive. Etes-vous sûr de vouloir supprimer ce chapitre ?'));">Effacer</a>
 			</div>
 		</div>
 	</div>

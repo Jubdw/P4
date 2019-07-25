@@ -8,6 +8,8 @@
 	<h2><?= $postToEdit['title'] ?></h2>
 	<br>
 	<a href="index.php?action=adminAccess">Retour à l'acceuil admin</a>
+	<br>
+	<a href="index.php?action=postManagement">Gestion des chapitres</a>
 </div>
 
 <div class="create-new-post">
