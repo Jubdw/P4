@@ -19,8 +19,11 @@
 			<p><?= $posts['small_content'] ?>...</p>
 		</div>
 		<div class=" post-manage">
+			<div class="post-link">
+				<a href="index.php?action=post&amp;id=<?= $posts['id'] ?>&amp;page=1">Voir le chapitre</a>
+			</div>
 			<div class="post-edit">
-				<a href="#">Modifier</a>
+				<a href="index.php?action=postToEdit&amp;id=<?= $posts['id'] ?>">Modifier</a>
 			</div>
 			<div class="post-delete">
 				<a href="#">Effacer</a>
