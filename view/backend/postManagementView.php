@@ -26,7 +26,7 @@
 				<a href="index.php?action=postToEdit&amp;id=<?= $posts['id'] ?>">Modifier</a>
 			</div>
 			<div class="post-delete">
-				<a href="#">Effacer</a>
+				<a href="index.php?action=deletePost&amp;id=<?= $posts['id'] ?>">Effacer</a>
 			</div>
 		</div>
 	</div>
