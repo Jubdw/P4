@@ -137,73 +137,123 @@ try {
             }
         }
         elseif ($_GET['action'] == 'userManagement') {
-            if (isset($_GET['page']) && $_GET['page'] > 0) {
+            if ($_SESSION['status'] == "admin") {
+                if (isset($_GET['page']) && $_GET['page'] > 0) {
                 manageUser($_GET['page']);
+                }
+                else {
+                    throw new Exception('Ne modifiez pas l\'url de la page si c\'est pour y écrire n\'importe quoi !...');
+                }
             }
             else {
-                throw new Exception('Ne modifiez pas l\'url de la page si c\'est pour y écrire n\'importe quoi !...');
+                throw new Exception('Vous n\'êtes pas autorisé à accéder à cette page.');
             }
         }
         elseif ($_GET['action'] == 'blockUser') {
-            if (isset($_GET['id']) && $_GET['id'] > 0) {
+            if ($_SESSION['status'] == "admin") {
+                if (isset($_GET['id']) && $_GET['id'] > 0) {
                 blockedUser($_GET['id']);
+                }
+                else {
+                    throw new Exception('Aucun utilisateur identifié !');
+                }
             }
             else {
-                throw new Exception('Aucun utilisateur identifié !');
+                throw new Exception('Vous n\'êtes pas autorisé à accéder à cette page.');
             }
         }
         elseif ($_GET['action'] == 'unblockUser') {
-            if (isset($_GET['id']) && $_GET['id'] > 0) {
+            if ($_SESSION['status'] == "admin") {
+                if (isset($_GET['id']) && $_GET['id'] > 0) {
                 unblockUser($_GET['id']);
+                }
+                else {
+                    throw new Exception('Aucun utilisateur identifié !');
+                }
             }
             else {
-                throw new Exception('Aucun utilisateur identifié !');
+                throw new Exception('Vous n\'êtes pas autorisé à accéder à cette page.');
             }
         }
         elseif ($_GET['action'] == 'postManagement') {
-            smallPosts();
-        }
-        elseif ($_GET['action'] == 'newPost') {
-            newPost();
-        }
-        elseif ($_GET['action'] == 'addPost') {
-            if (!empty($_POST['title']) && !empty($_POST['content'])) {
-                addPost($_POST['title'], $_POST['content']);
+            if ($_SESSION['status'] == "admin") {
+                smallPosts();
             }
             else {
-                throw new Exception('Tous les champs ne sont pas remplis !');
+                throw new Exception('Vous n\'êtes pas autorisé à accéder à cette page.');
+            }
+        }
+        elseif ($_GET['action'] == 'newPost') {
+            if ($_SESSION['status'] == "admin") {
+                newPost();
+            }
+            else {
+                throw new Exception('Vous n\'êtes pas autorisé à accéder à cette page.');
+            }
+        }
+        elseif ($_GET['action'] == 'addPost') {
+            if ($_SESSION['status'] == "admin") {
+                if (!empty($_POST['title']) && !empty($_POST['content'])) {
+                    addPost($_POST['title'], $_POST['content']);
+                }
+                else {
+                    throw new Exception('Tous les champs ne sont pas remplis !');
+                }
+            }
+            else {
+                throw new Exception('Vous n\'êtes pas autorisé à accéder à cette page.');
             }
         }
         elseif ($_GET['action'] == 'commentManagement') {
-            if (isset($_GET['page']) && $_GET['page'] > 0) {
-                listAdminComments($_GET['page']);
+            if ($_SESSION['status'] == "admin") {
+                if (isset($_GET['page']) && $_GET['page'] > 0) {
+                    listAdminComments($_GET['page']);
+                }
+                else {
+                    throw new Exception('Ne modifiez pas l\'url de la page si c\'est pour y écrire n\'importe quoi !...');
+                }
             }
             else {
-                throw new Exception('Ne modifiez pas l\'url de la page si c\'est pour y écrire n\'importe quoi !...');
+                throw new Exception('Vous n\'êtes pas autorisé à accéder à cette page.');
             }
         }
         elseif ($_GET['action'] == 'reportedCommentManagement') {
-            if (isset($_GET['page']) && $_GET['page'] > 0 && isset($_GET['bpage']) && $_GET['bpage'] > 0) {
-                listAdminReportedComments($_GET['page'], $_GET['bpage']);
+            if ($_SESSION['status'] == "admin") {
+                if (isset($_GET['page']) && $_GET['page'] > 0) {
+                    listAdminComments($_GET['page']);
+                }
+                else {
+                    throw new Exception('Ne modifiez pas l\'url de la page si c\'est pour y écrire n\'importe quoi !...');
+                }
             }
             else {
-                throw new Exception('Ne modifiez pas l\'url de la page si c\'est pour y écrire n\'importe quoi !...');
+                throw new Exception('Vous n\'êtes pas autorisé à accéder à cette page.');
             }
         }
         elseif ($_GET['action'] == 'blockComment') {
-            if (isset($_GET['id']) && $_GET['id'] > 0) {
-                blockComment($_GET['id']);
+            if ($_SESSION['status'] == "admin") {
+                if (isset($_GET['id']) && $_GET['id'] > 0) {
+                    blockComment($_GET['id']);
+                }
+                else {
+                    throw new Exception('Aucun commentaire identifié !');
+                }
             }
             else {
-                throw new Exception('Aucun commentaire identifié !');
+                throw new Exception('Vous n\'êtes pas autorisé à accéder à cette page.');
             }
         }
         elseif ($_GET['action'] == 'deBlockComment') {
-            if (isset($_GET['id']) && $_GET['id'] > 0) {
-                deBlockComment($_GET['id']);
+            if ($_SESSION['status'] == "admin") {
+                if (isset($_GET['id']) && $_GET['id'] > 0) {
+                    deBlockComment($_GET['id']);
+                }
+                else {
+                    throw new Exception('Aucun commentaire identifié !');
+                }
             }
             else {
-                throw new Exception('Aucun commentaire identifié !');
+                throw new Exception('Vous n\'êtes pas autorisé à accéder à cette page.');
             }
         }
         /* ------------------------------------------------------------------------- END ADMIN ------ */
