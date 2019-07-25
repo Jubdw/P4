@@ -27,11 +27,14 @@ class CommentManager extends Manager
         return $comment;
     }
 
-    public function getUserComments($userId)
+    public function getUserCommentsPaged($userId, $start, $perPage)
     {
         $db = $this->dbConnect();
-        $userComments = $db->prepare('SELECT c.id id, c.post_id post_id, c.comment comment, DATE_FORMAT(c.comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, c.blocked blocked, p.title post_title FROM comments c INNER JOIN posts p ON c.post_id = p.id WHERE user_id = ?');
-        $userComments->execute([$userId]);
+        $userComments = $db->prepare('SELECT c.id id, c.post_id post_id, c.comment comment, DATE_FORMAT(c.comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, c.blocked blocked, p.title post_title FROM comments c INNER JOIN posts p ON c.post_id = p.id WHERE user_id = :user_id ORDER BY c.comment_date DESC LIMIT :start, :perPage');
+        $userComments->bindValue('start', $start, \PDO::PARAM_INT);
+        $userComments->bindValue('perPage', $perPage, \PDO::PARAM_INT);
+        $userComments->bindValue('user_id', $userId, \PDO::PARAM_INT);
+        $userComments->execute();
 
         return $userComments;
     }
