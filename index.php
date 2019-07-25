@@ -230,6 +230,19 @@ try {
                 throw new Exception('Vous n\'êtes pas autorisé à accéder à cette page.');
             }
          }
+         elseif ($_GET['action'] == 'deletePost') {
+            if ($_SESSION['status'] == "admin") {
+                if (isset($_GET['id']) && $_GET['id'] > 0) {
+                    deletePost($_GET['id']);
+                }
+                else {
+                    throw new Exception('Aucun identifiant de chapitre envoyé !');
+                }
+            }
+            else {
+                throw new Exception('Vous n\'êtes pas autorisé à accéder à cette page.');
+            }
+         }
         elseif ($_GET['action'] == 'commentManagement') {
             if ($_SESSION['status'] == "admin") {
                 if (isset($_GET['page']) && $_GET['page'] > 0) {
