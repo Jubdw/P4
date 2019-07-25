@@ -165,7 +165,7 @@ try {
         elseif ($_GET['action'] == 'unblockUser') {
             if ($_SESSION['status'] == "admin") {
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
-                unblockUser($_GET['id']);
+                    unblockUser($_GET['id']);
                 }
                 else {
                     throw new Exception('Aucun utilisateur identifié !');
@@ -204,6 +204,32 @@ try {
                 throw new Exception('Vous n\'êtes pas autorisé à accéder à cette page.');
             }
         }
+        elseif ($_GET['action'] == 'postToEdit') {
+            if ($_SESSION['status'] == "admin") {
+                if (isset($_GET['id']) && $_GET['id'] > 0) {
+                    showPostToEdit($_GET['id']);
+                }
+                else {
+                    throw new Exception('Aucun identifiant de chapitre envoyé !');
+                }
+            }
+            else {
+                throw new Exception('Vous n\'êtes pas autorisé à accéder à cette page.');
+            }
+        }
+        elseif ($_GET['action'] == 'editPost') {
+            if ($_SESSION['status'] == "admin") {
+                if (isset($_GET['id']) && $_GET['id'] > 0) {
+                    editPost($_GET['id'], $_POST['title'], $_POST['content']);
+                }
+                else {
+                    throw new Exception('Aucun identifiant de chapitre envoyé !');
+                }
+            }
+            else {
+                throw new Exception('Vous n\'êtes pas autorisé à accéder à cette page.');
+            }
+         }
         elseif ($_GET['action'] == 'commentManagement') {
             if ($_SESSION['status'] == "admin") {
                 if (isset($_GET['page']) && $_GET['page'] > 0) {
