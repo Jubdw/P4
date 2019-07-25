@@ -335,7 +335,7 @@ function addPost($title, $content)
     $newPost = $postManager->addNewPost($title, $content);
 
     if ($newPost === false) {
-        throw new Exception('Impossible de créer l\'épisode !');
+        throw new Exception('Impossible de créer le chapitre !');
     }
     else {
         header('Location: index.php?action=postManagement');
@@ -354,7 +354,19 @@ function editPost($id, $title, $content)
     $postEdit = $postManager->editPost($id, $title, $content);
 
     if ($postEdit === false) {
-        throw new Exception('Impossible de modifier l\'épisode !');
+        throw new Exception('Impossible de modifier le chapitre !');
+    }
+    else {
+        header('Location: index.php?action=postManagement');
+    }
+}
+function deletePost($id)
+{
+    $postManager = new PostManager();
+    $deletePost = $postManager->deletePost($id);
+
+    if ($deletePost === false) {
+        throw new Exception('Impossible d\'effacer le chapitre !');
     }
     else {
         header('Location: index.php?action=postManagement');
