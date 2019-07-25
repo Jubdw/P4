@@ -127,6 +127,7 @@ try {
                 throw new Exception('Les mots de passes entrés ne sont pas identiques !');
             }
         }
+        /* ------------------------------------------------------------------------- START ADMIN ------ */
         elseif ($_GET['action'] == 'adminAccess') {
             if ($_SESSION['status'] == "admin") {
                 administer();
@@ -162,6 +163,17 @@ try {
         elseif ($_GET['action'] == 'postManagement') {
             smallPosts();
         }
+        elseif ($_GET['action'] == 'newPost') {
+            newPost();
+        }
+        elseif ($_GET['action'] == 'addPost') {
+            if (!empty($_POST['title']) && !empty($_POST['content'])) {
+                addPost($_POST['title'], $_POST['content']);
+            }
+            else {
+                throw new Exception('Tous les champs ne sont pas remplis !');
+            }
+        }
         elseif ($_GET['action'] == 'commentManagement') {
             if (isset($_GET['page']) && $_GET['page'] > 0) {
                 listAdminComments($_GET['page']);
@@ -194,6 +206,7 @@ try {
                 throw new Exception('Aucun commentaire identifié !');
             }
         }
+        /* ------------------------------------------------------------------------- END ADMIN ------ */
         elseif ($_GET['action'] == 'about') {
             about();
         }
