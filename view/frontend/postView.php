@@ -89,6 +89,15 @@ while ($comment = $comments->fetch())
         ?>
     </div>
     <?php
+    }
+    else 
+    {
+    ?>
+    <div class="comment">
+        <p><strong><a href="index.php?action=showProfile&amp;id=<?= $comment['user_id'] ?>"><?php echo $comment['user_name'] ?></a></strong> le <?php echo $comment['comment_date_fr'] ?></p>
+        <p><em>Ce commentaire a été bloqué par l'auteur. Veuillez respecter son travail ainsi que les commentaires des autres lecteurs.</em></p>
+    </div>
+    <?php
     }    
 }
 ?>
