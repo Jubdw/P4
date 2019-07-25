@@ -704,7 +704,7 @@ a
 .post-admin-list, .comment-admin-list
 {
     width: 90%;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
     border: 1px solid black;
     border-radius: 2%;
     display: flex;
@@ -771,7 +771,7 @@ a
     background: -webkit-linear-gradient(-45deg, rgba(188,37,40,1) 17%,rgba(188,37,40,1) 24%,rgba(188,37,40,0.58) 56%,rgba(117,23,25,0.34) 74%,rgba(125,185,232,0) 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(135deg, rgba(188,37,40,1) 17%,rgba(188,37,40,1) 24%,rgba(188,37,40,0.58) 56%,rgba(117,23,25,0.34) 74%,rgba(125,185,232,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
-.small-post
+.small-post 
 {
     width: 70%;
     padding: 2%;
@@ -783,6 +783,12 @@ a
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+.post-admin-list /* https://colorzilla.com/gradient-editor */
+{
+    background: -moz-linear-gradient(top, rgba(242,246,248,1) 0%, rgba(216,225,231,1) 50%, rgba(181,198,208,1) 51%, rgba(224,239,249,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(242,246,248,1) 0%,rgba(216,225,231,1) 50%,rgba(181,198,208,1) 51%,rgba(224,239,249,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(242,246,248,1) 0%,rgba(216,225,231,1) 50%,rgba(181,198,208,1) 51%,rgba(224,239,249,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 .post-edit, .post-delete, .post-link 
 {
@@ -797,6 +803,15 @@ a
     margin: 2px 0;
     border: 1px solid black;
     border-radius: 50%;
+}
+.post-edit a, .post-delete a, .post-link a
+{
+    color: rgb(24,24,24);
+}
+.post-edit a:hover, .post-delete a:hover, .post-link a:hover
+{
+    font-weight: bold;
+    color: rgb(180,40,40);
 }
 .post-link 
 {
