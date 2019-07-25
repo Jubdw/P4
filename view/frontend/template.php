@@ -4,6 +4,12 @@
         <meta charset="utf-8" />
         <title><?= $title ?></title>
         <link href="public/css/style.css" rel="stylesheet" /> 
+        <script src="https://cdn.tiny.cloud/1/50b9t4itc4o9gqlx8amxckfmfju1qcpyvxljpdpjvjgnh820/tinymce/5/tinymce.min.js"></script>
+        <script>
+            tinymce.init({
+                selector: '#tm_new_post'
+            });
+        </script>
     </head>
         
     <body>
