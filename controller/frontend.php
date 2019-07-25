@@ -338,10 +338,28 @@ function addPost($title, $content)
         throw new Exception('Impossible de créer l\'épisode !');
     }
     else {
-        header('Location: index.php?action=adminAccess');
+        header('Location: index.php?action=postManagement');
     }
 }
+function showPostToEdit($id)
+{
+    $postManager = new PostManager();
+    $postToEdit = $postManager->getPost($id);
 
+    require('view/backend/editPostView.php');
+}
+function editPost($id, $title, $content)
+{
+    $postManager = new PostManager();
+    $postEdit = $postManager->editPost($id, $title, $content);
+
+    if ($postEdit === false) {
+        throw new Exception('Impossible de modifier l\'épisode !');
+    }
+    else {
+        header('Location: index.php?action=postManagement');
+    }
+}
 /* -------------------------------------------------------------------------- COMMENT ----- */
 function listAdminComments($page)
 {
