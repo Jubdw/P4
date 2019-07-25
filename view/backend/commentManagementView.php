@@ -5,6 +5,8 @@
 <div class="title">
 	<h2>Gestion des commentaires :</h2>
 	<a href="index.php?action=adminAccess">Retour à l'acceuil admin</a>
+	<br>
+	<a href="index.php?action=reportedCommentManagement&amp;page=1&amp;bpage=1">Gestion des commentaires Signalés & Bloqués</a>
 </div>
 
 <div id="comment-management">

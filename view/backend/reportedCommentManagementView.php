@@ -1,10 +1,12 @@
-<?php $title = "Gestion des commentaires"; ?>
+<?php $title = "Gestion des commentaires signalés et bloqués"; ?>
 
 <?php ob_start(); ?>
 
 <div class="title">
-	<h2>Gestion des commentaires :</h2>
+	<h2>Gestion des commentaires signalés et bloqués:</h2>
 	<a href="index.php?action=adminAccess">Retour à l'acceuil admin</a>
+	<br>
+	<a href="index.php?action=commentManagement&amp;page=1">Gestion des commentaires</a>
 </div>
 
 
