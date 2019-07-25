@@ -9,10 +9,23 @@ require_once('model/UserManager.php');
 
 // fonction PostManager --------------------------------------------------------
 
-function listPosts()
+function listPosts($page)
 {
     $postManager = new PostManager();
-    $posts = $postManager->getPosts();
+
+    $countP = $postManager->countPosts();
+    $postsNb = $countP['postsNb'];
+    $perPage = 5;
+    $maxPages = ceil($postsNb/$perPage);
+    if ($page <= $maxPages) {
+        $currentPage = $page;
+    }
+    else {
+        $currentPage = 1;
+    }
+    $start = (($currentPage - 1) * $perPage);
+
+    $posts = $postManager->getPostsPaged($start, $perPage);
 
     require('view/frontend/listPostsView.php');
 }
