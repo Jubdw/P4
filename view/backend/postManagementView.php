@@ -1,4 +1,4 @@
-<?php $title = "Gestion des utilisateurs"; ?>
+<?php $title = "Gestion des chapitres"; ?>
 
 <?php ob_start(); ?>
 
