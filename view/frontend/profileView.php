@@ -44,14 +44,26 @@ if (!isset($_SESSION['id']) || $_SESSION['id'] != $_GET['id']) {
 	?>
 	<div class="comment">
 		<em><strong>Le <?= $data['comment_date_fr'] ?></strong></em>
+		<?php
+		if ($data['blocked'] == 1)
+		{
+		?>
+		<p><em>Ce commentaire a été bloqué par l'auteur. Veuillez respecter son travail ainsi que les commentaires des autres lecteurs.</em></p>
+		<?php
+		}
+		else
+		{
+		?>
 		<p><?= nl2br(htmlspecialchars($data['comment'])) ?></p>
-		<?php 
-		if (isset($_SESSION['id']) && $_SESSION['id'] == $_GET['id']) {
+		<?php
+		}
+		
+		if (isset($_SESSION['id']) && $_SESSION['id'] == $_GET['id'] && $data['blocked'] == 0) {
 			?>
 			<div class="link-update"><a href="index.php?action=update&amp;id=<?= $data['id'] ?>">&#9997; Modifier &#9997;</a></div>
 			<?php
 		}
-		if (!isset($_SESSION['id']) || $_SESSION['id'] != $_GET['id']) {
+		if (!isset($_SESSION['id']) || $_SESSION['id'] != $_GET['id'] && $data['blocked'] == 0) {
 			?>
 			<div class="link-report"><a href="index.php?action=reportComment&amp;id=<?= $data['id'] ?>">&#128683; Signaler &#128683;</a></div>
 			<?php
