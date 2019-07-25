@@ -43,7 +43,7 @@ if (!isset($_SESSION['id']) || $_SESSION['id'] != $_GET['id']) {
 	{
 	?>
 	<div class="comment">
-		<em><strong>Le <?= $data['comment_date_fr'] ?></strong></em>
+		<p><strong>Chapitre <a href="index.php?action=post&amp;id=<?= $data['post_id'] ?>&amp;page=1"><?= $data['post_title'] ?> </a></strong><em>le <?= $data['comment_date_fr'] ?></em></p>
 		<?php
 		if ($data['blocked'] == 1)
 		{
