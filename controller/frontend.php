@@ -181,13 +181,25 @@ function addUser($name, $password, $email)
     }
 }
 
-function profile()
+function profile($page)
 {
     $userManager = new UserManager();
     $profile = $userManager->getUser($_GET['id']);
 
     $commentManager = new CommentManager();
-    $userComments = $commentManager->getUserComments($_GET['id']);
+    $countC = $commentManager->countComments();
+    $commentNb = $countC['commentNb'];
+    $perPage = 8;
+    $maxPages = ceil($commentNb/$perPage);
+    if ($page <= $maxPages) {
+        $currentPage = $page;
+    }
+    else {
+        $currentPage = 1;
+    }
+    $start = (($currentPage - 1) * $perPage);
+
+    $userComments = $commentManager->getUserCommentsPaged($_GET['id'], $start, $perPage);
 
     if ($profile === false) {
         throw new Exception('Ce membre n\'existe pas !');
