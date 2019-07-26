@@ -2,17 +2,17 @@
 
 <?php ob_start(); ?>
 <div class="contact">
-	<div class="titles">
+	<div class="titles titles-contact">
 		<h1>Contactez Jean Forteroche</h1>
-		<h3><a href="mailto:jeanforteroche@fakeadress.com">Ici</a></h3>
+		<h1><a href="mailto:jeanforteroche@fakeadress.com">Ici</a></h1>
 	</div>
-	<div class="title">
+	<div class="title title-contact">
 		<h2>Ou remplissez ce formulaire :</h2>
 	</div>
 </div>
 
 <div class="contact-form">
-	<form action="" method="post">
+	<form action="index.php?action=mail" method="post">
 		<div class="inputs">
 			<label for="name">Votre nom : </label>
 			<input type="text" name="name" id="name" required>

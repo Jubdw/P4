@@ -505,3 +505,14 @@ function contact()
 {
     require('view/frontend/contactView.php');
 }
+
+function sendEmail()
+{
+    $sentM = mail('julienbarre01@ymail.com', 'contact-form', $_POST['message'], 'From : blog de Jean Forteroche');
+    if (!$sentM) {
+        throw new Exception('Échec de l\' envoi.');
+    }
+    else {
+        header('Location: index.php?action=about');
+    }
+}

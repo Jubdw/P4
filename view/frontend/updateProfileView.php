@@ -1,8 +1,8 @@
 <?php $title = "Modifier votre profil" ?>
 
 <?php ob_start(); ?>
-<div class="title">
-	<h2>Modifiez les informations relatives à votre compte</h2>
+<div class="title title-small">
+	<h1>Modifiez les informations relatives à votre compte</h1>
 </div>
 
 <div class="edit-profile edit-name">

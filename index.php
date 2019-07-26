@@ -307,6 +307,14 @@ try {
         elseif ($_GET['action'] == 'contact') {
             contact();
         }
+        elseif ($_GET['action'] == 'mail') {
+            if (!empty($_POST['message'])) {
+                sendEmail();
+            }
+            else {
+                throw new Exception('Tous les champs ne sont pas remplis !');
+            }
+        }
     }
     else {
         welcomePosts();
