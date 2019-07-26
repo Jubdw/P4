@@ -15,7 +15,7 @@ if (!isset($_SESSION['id']) || $_SESSION['id'] != $_GET['id']) {
 </div>
 
 <div class="user-profile">
-	<h4>Nom : <?= $profile['name'] ?></h4>
+	<h4><?= $profile['name'] ?></h4>
 	<?php 
 	if (isset($_SESSION['id']) && $_SESSION['id'] == $_GET['id']) {
 		?>
@@ -91,6 +91,24 @@ if (!isset($_SESSION['id']) || $_SESSION['id'] != $_GET['id']) {
 	<?php
 	}
 	?>
+	<div class="paging">
+        <?php 
+        for ($i = 1; $i <= $maxPages; $i++) {
+            if ($i == $currentPage) 
+            {
+            ?>
+            <div class="current-page"><p> <?= $i ?> </p></div>
+            <?php 
+            }
+            else 
+            {
+            ?>
+            <div class="other-pages"><a href="index.php?action=showProfile&id=<?= $_GET['id'] ?>&page=<?= $i ?>"> <?= $i ?> </a></div>
+            <?php 
+            }
+        }
+        ?>
+    </div>
 </div>
 
 <?php $content = ob_get_clean(); ?>

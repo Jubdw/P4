@@ -3,7 +3,7 @@
 <?php ob_start(); ?>
 <div class="title">
     <h1>Billet simple pour l'Alaska</h1>
-    <p><a href="index.php?action=listPosts">Retour à la liste des derniers épisodes</a></p>
+    <p><a href="index.php?action=listPosts&amp;page=1">Retour à la liste des derniers épisodes</a></p>
     <p><a href="index.php">Retour à l'acceuil</a></p>
 </div>
 
