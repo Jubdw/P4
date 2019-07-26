@@ -160,12 +160,25 @@ h4
 }
 
 /* ------ POST - LISTPOSTS VIEW ------ */
-
+.list-posts
+{
+    width: 70%;
+    margin: 2px 13%;
+    padding: 1%;
+    border: 1px solid black;
+    border-radius: 2%;
+    background-color: rgba(240,240,240, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 .episode, #comment-section
 {
-    width: 60%;
-    margin: 8px 18%;
-    padding: 2%;
+    width: 70%;
+    margin: 8px 13%;
+    padding: 1%;
     border: 1px solid black;
     border-radius: 10%;
     background-color: rgba(240,240,240, 0.8);
@@ -205,6 +218,7 @@ a
     border: 1px solid black;
     border-radius: 2%;
 }
+
 .current-page, .other-pages
 {
     font-weight: bold;
