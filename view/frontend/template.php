@@ -25,7 +25,7 @@
                     <?php 
                     if (isset($_SESSION['id']) AND isset($_SESSION['name'])) {
                         ?>
-                        <li><a href="index.php?action=showProfile&amp;id=<?= $_SESSION['id'] ?>&amp;page=1"><?php echo $_SESSION['name'] ?></a></li>
+                        <li><p class="profile-link"><a href="index.php?action=showProfile&amp;id=<?= $_SESSION['id'] ?>&amp;page=1"><?php echo $_SESSION['name'] ?></a></p></li>
                         <li><a href="index.php?action=logout">Déconnexion</a></li>
                         <?php
                         if (isset($_SESSION['status']) AND $_SESSION['status'] === "admin") {
@@ -94,7 +94,9 @@
     		</div>
     		<div id="legal">
     			<p>Copyright © 2019 - Jean Forteroche - Tous droits réservés / Site réalisé par <a href="https://julienbarre.fr">un glandu</a></p>
-    			<p>Plan du site : <a href="index.php">Acceuil</a> | <a href="index.php?action=listPosts&amp;page=1">Blog</a> | <a href="index.php?action=about">À propos</a> | <a href="index.php?action=contact">Contact</a> | <?php if (isset($_SESSION['id']) AND isset($_SESSION['name'])) { ?><a href="index.php?action=showProfile&amp;id=<?= $_SESSION['id'] ?>&amp;page=1"><?php echo $_SESSION['name'] ?></a> | <a href="index.php?action=logout">Déconnexion</a><?php } else { ?><a href="index.php?action=register">Connexion</a><?php }?></p>
+                <div class="footer-links">
+    			<p>Plan du site : <a href="index.php">Acceuil</a> | <a href="index.php?action=listPosts&amp;page=1">Blog</a> | <a href="index.php?action=about">À propos</a> | <a href="index.php?action=contact">Contact</a> | <?php if (isset($_SESSION['id']) AND isset($_SESSION['name'])) { ?><span class="profile-link"><a href="index.php?action=showProfile&amp;id=<?= $_SESSION['id'] ?>&amp;page=1"><?php echo $_SESSION['name'] ?></a></span> | <a href="index.php?action=logout">Déconnexion</a><?php } else { ?><a href="index.php?action=register">Connexion</a><?php }?></p>
+                </div>
     		</div>
     	</footer>
 
