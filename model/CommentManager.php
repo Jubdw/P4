@@ -75,6 +75,28 @@ class CommentManager extends Manager
         return $data;
     }
 
+    public function countPostComments($postId)
+    {
+        $db = $this->dbConnect();
+        $data = $db->prepare('SELECT COUNT(id) as commentNb FROM comments WHERE post_id = :post_id');
+        $data->bindValue('post_id', $postId, \PDO::PARAM_INT);
+        $data->execute();
+        $count = $data->fetch();
+
+        return $count;
+    }
+
+    public function countUserComments($userId)
+    {
+        $db = $this->dbConnect();
+        $data = $db->prepare('SELECT COUNT(id) as commentNb FROM comments WHERE user_id = :user_id');
+        $data->bindValue('user_id', $userId, \PDO::PARAM_INT);
+        $data->execute();
+        $count = $data->fetch();
+
+        return $count;
+    }
+
 /* fonctions admin */
 
     public function getNoReportCommentsPaged($start, $perPage)
