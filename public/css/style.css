@@ -54,7 +54,14 @@ nav a:hover
 {
     color: lightblue;
 }
-
+.profile-link a
+{
+    color: rgb(100,200,100);
+}
+.profile-link a:hover
+{
+    color: rgb(60,240,60);
+}
 #content 
 {
     position: relative;
@@ -90,7 +97,20 @@ footer a:hover
     background-color: rgb(66,66,66);
     color: white;
 }
-
+.footer-links
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.footer-links p
+{
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+}
 #legal
 {
     height: 60px;
