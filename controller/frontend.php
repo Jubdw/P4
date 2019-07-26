@@ -147,7 +147,7 @@ function connect($name)
                 throw new Exception('Votre compte à été bloqué. Comportez-vous mieux !');
             }
             else {
-                header('Location: index.php?action=showProfile&id=' . $_SESSION['id']);
+                header('Location: index.php?action=showProfile&id=' . $_SESSION['id'] . '&page=1');
             }
         }
         else {
