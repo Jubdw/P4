@@ -37,7 +37,8 @@ function post($page)
 
     $post = $postManager->getPost($_GET['id']);
 
-    $countC = $commentManager->countComments();
+    $countC = $commentManager->countPostComments($_GET['id']);
+
     $commentNb = $countC['commentNb'];
     $perPage = 6;
     $maxPages = ceil($commentNb/$perPage);
@@ -200,7 +201,7 @@ function profile($page)
     $profile = $userManager->getUser($_GET['id']);
 
     $commentManager = new CommentManager();
-    $countC = $commentManager->countComments();
+    $countC = $commentManager->countUserComments($_GET['id']);
     $commentNb = $countC['commentNb'];
     $perPage = 8;
     $maxPages = ceil($commentNb/$perPage);
