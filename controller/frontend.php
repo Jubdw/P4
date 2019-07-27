@@ -115,7 +115,7 @@ function updateComment($id, $comment, $postId)
         throw new Exception('Impossible de modifier le commentaire !');
     }
     else {
-        header('Location: index.php?action=post&id=' . $postId . '#comment-section');
+        header('Location: index.php?action=post&id=' . $postId .  '&page=1#comment-section');
     }
 }
 

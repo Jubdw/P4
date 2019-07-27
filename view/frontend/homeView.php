@@ -29,11 +29,11 @@ while ($data = $posts->fetch())
 ?>
     <div class="h-episode">
         <div class="episode-title">
-            <h2><a href="index.php?action=post&amp;id=<?= $data['id'] ?>"><?= htmlspecialchars($data['title']) ?></a></h2>
+            <h2><a href="index.php?action=post&amp;id=<?= $data['id'] ?>&amp;page=1"><?= htmlspecialchars($data['title']) ?></a></h2>
             <em>le <?= $data['creation_date_fr'] ?></em>
         </div><br>
 
-        <p><?= nl2br(htmlspecialchars($data['small_content'])) ?> ... <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Lire la suite</a></em></p>
+        <p><?= nl2br(htmlspecialchars($data['small_content'])) ?> ... <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>&amp;page=1">Lire la suite</a></em></p>
     </div><br>
 <?php
 }

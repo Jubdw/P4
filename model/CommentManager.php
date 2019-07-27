@@ -69,7 +69,7 @@ class CommentManager extends Manager
     public function countComments()
     {
         $db = $this->dbConnect();
-        $req = $db->query('SELECT COUNT(id) as commentNb FROM comments');
+        $req = $db->query('SELECT COUNT(id) as commentNb FROM comments WHERE blocked ="0" AND reported = "0"');
         $data = $req->fetch();
 
         return $data;
