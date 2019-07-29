@@ -9,7 +9,7 @@ class CommentManager extends Manager
     public function getCommentsPaged($postId, $start, $perPage)
     {
         $db = $this->dbConnect();
-        $comments = $db->prepare('SELECT id, user_id, user_name, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, blocked FROM comments WHERE post_id = :post_id ORDER BY comment_date DESC LIMIT :start, :perPage');
+        $comments = $db->prepare('SELECT id, user_id, user_name, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, blocked, reported FROM comments WHERE post_id = :post_id ORDER BY comment_date DESC LIMIT :start, :perPage');
         $comments->bindValue('start', $start, \PDO::PARAM_INT);
         $comments->bindValue('perPage', $perPage, \PDO::PARAM_INT);
         $comments->bindValue('post_id', $postId, \PDO::PARAM_INT);
@@ -30,7 +30,7 @@ class CommentManager extends Manager
     public function getUserCommentsPaged($userId, $start, $perPage)
     {
         $db = $this->dbConnect();
-        $userComments = $db->prepare('SELECT c.id id, c.post_id post_id, c.comment comment, DATE_FORMAT(c.comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, c.blocked blocked, p.title post_title FROM comments c INNER JOIN posts p ON c.post_id = p.id WHERE user_id = :user_id ORDER BY c.comment_date DESC LIMIT :start, :perPage');
+        $userComments = $db->prepare('SELECT c.id id, c.post_id post_id, c.comment comment, DATE_FORMAT(c.comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, c.blocked blocked, c.reported reported, p.title post_title FROM comments c INNER JOIN posts p ON c.post_id = p.id WHERE user_id = :user_id ORDER BY c.comment_date DESC LIMIT :start, :perPage');
         $userComments->bindValue('start', $start, \PDO::PARAM_INT);
         $userComments->bindValue('perPage', $perPage, \PDO::PARAM_INT);
         $userComments->bindValue('user_id', $userId, \PDO::PARAM_INT);
