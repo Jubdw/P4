@@ -39,8 +39,13 @@
 			<p><strong><?= $repComment['user_name'] ?></strong> le : <?= $repComment['comment_date_fr'] ?></p>
 			<p><?= $repComment['comment'] ?></p>
 		</div>
-		<div class="comment-block">
-			<a href="index.php?action=blockComment&amp;id=<?= $repComment['id'] ?>&amp;page=<?= $_GET['page'] ?>&amp;bpage=<?= $_GET['bpage'] ?>">&#128683;</br>Bloquer</br>&#128683;</a>
+		<div class="comment-admin-commands">
+			<div class="comment-block">
+				<a href="index.php?action=blockComment&amp;id=<?= $repComment['id'] ?>&amp;page=<?= $_GET['page'] ?>&amp;bpage=<?= $_GET['bpage'] ?>">&#10004;</br>Bloquer</br>&#10004;</a>
+			</div>
+			<div class="comment-delete">
+				<a href="index.php?action=deleteComment&amp;id=<?= $repComment['id'] ?>&amp;page=<?= $_GET['page'] ?>&amp;bpage=<?= $_GET['bpage'] ?>" onclick="return(confirm('Cette action est définitive. Etes-vous sûr de vouloir supprimer ce commentaire ?'));">&#10060;</br>Effacer</br>&#10060;</a>
+			</div>
 		</div>
 	</div>
 	<?php 
@@ -95,8 +100,13 @@
 			<p><strong><?= $blockComment['user_name'] ?></strong> le : <?= $blockComment['comment_date_fr'] ?></p>
 			<p><?= $blockComment['comment'] ?></p>
 		</div>
-		<div class="comment-unblock">
-			<a href="index.php?action=deBlockComment&amp;id=<?= $blockComment['id'] ?>&amp;page=<?= $_GET['page'] ?>&amp;bpage=<?= $_GET['bpage'] ?>">&#10004;</br>Débloquer</br>&#10004;</a>
+		<div class="comment-admin-commands">
+			<div class="comment-unblock">
+				<a href="index.php?action=deBlockComment&amp;id=<?= $blockComment['id'] ?>&amp;page=<?= $_GET['page'] ?>&amp;bpage=<?= $_GET['bpage'] ?>">&#10004;</br>Débloquer</br>&#10004;</a>
+			</div>
+			<div class="comment-delete">
+				<a href="index.php?action=deleteComment&amp;id=<?= $blockComment['id'] ?>&amp;page=<?= $_GET['page'] ?>&amp;bpage=<?= $_GET['bpage'] ?>" onclick="return(confirm('Cette action est définitive. Etes-vous sûr de vouloir supprimer ce commentaire ?'));">&#10060;</br>Effacer</br>&#10060;</a>
+			</div>
 		</div>
 	</div>
 	<?php 
