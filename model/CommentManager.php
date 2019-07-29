@@ -175,4 +175,13 @@ class CommentManager extends Manager
 
         return $affectedLines;
     }
+
+    public function deleteComment($id)
+    {
+        $db = $this->dbConnect();
+        $deletedComment = $db->prepare('DELETE FROM comments WHERE id = ?');
+        $affectedLines = $deletedComment->execute([$id]);
+
+        return $affectedLines;
+    }
 }
