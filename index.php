@@ -300,6 +300,19 @@ try {
                 throw new Exception('Vous n\'êtes pas autorisé à accéder à cette page.');
             }
         }
+        elseif ($_GET['action'] == 'deleteComment') {
+            if ($_SESSION['status'] == "admin") {
+                if (isset($_GET['id']) && $_GET['id'] > 0) {
+                    deleteComment($_GET['id']);
+                }
+                else {
+                    throw new Exception('Aucun identifiant de commentaire envoyé !');
+                }
+            }
+            else {
+                throw new Exception('Vous n\'êtes pas autorisé à accéder à cette page.');
+            }
+         }
         /* ------------------------------------------------------------------------- END ADMIN ------ */
         elseif ($_GET['action'] == 'about') {
             about();
