@@ -103,13 +103,13 @@
     		<div id="links">
     			<p>Retrouvez moi sur les réseaux sociaux :</p>
     			<ul>
-	    			<li><img src="public/images/facebook-icon.png"></li>
-	    			<li><img src="public/images/instagram-icon.png"></li>
-	    			<li><img src="public/images/Twitter-icon.png"></li>
+	    			<li><a href="https://www.facebook.com"><img src="public/images/facebook-icon.png"></a></li>
+	    			<li><a href="https://www.instagram.com"><img src="public/images/instagram-icon.png"></a></li>
+	    			<li><a href="https://www.twitter.com"><img src="public/images/Twitter-icon.png"></a></li>
 	    		</ul>
     		</div>
     		<div id="legal">
-    			<p>Copyright © 2019 - Jean Forteroche - Tous droits réservés - <a href="index.php?action=legal">Mentions Légales</a> | Site réalisé par <a href="https://julienbarre.fr">un glandu</a></p>
+    			<p>Copyright © 2019 - Jean Forteroche - Tous droits réservés - <a href="index.php?action=legal">Mentions Légales</a> | Site réalisé par <a href="https://julienbarre.fr">JBDW</a></p>
                 <div class="footer-links">
     			<p>Plan du site : <a href="index.php">Acceuil</a> | <a href="index.php?action=listPosts&amp;page=1">Blog</a> | <a href="index.php?action=about">À propos</a> | <a href="index.php?action=contact">Contact</a> | <?php if (isset($_SESSION['id']) AND isset($_SESSION['name'])) { ?><span class="profile-link"><a href="index.php?action=showProfile&amp;id=<?= $_SESSION['id'] ?>&amp;page=1"><?php echo $_SESSION['name'] ?></a></span> | <a href="index.php?action=logout">Déconnexion</a><?php } else { ?><a href="index.php?action=register">Connexion</a><?php }?></p>
                 </div>
