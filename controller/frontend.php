@@ -489,6 +489,21 @@ function deBlockComment($id)
     }
 }
 
+function deleteComment($id)
+{
+    $commentManager = new CommentManager();
+    $deletedComment = $commentManager->deleteComment($id);
+
+    if ($deletedComment === false) {
+        throw new Exception('Impossible d\'effacer le commentaire !');
+    }
+    elseif (isset($_GET['page']) && isset($_GET['bpage'])) {
+        header('Location: index.php?action=reportedCommentManagement&page=' . $_GET['page'] . '&bpage=' . $_GET['bpage']);
+    }
+    else {
+        header('Location: index.php?action=commentManagement&page=' . $_GET['page']);
+    }
+}
 
 // autres fonctions -------------------------------------------------------------
 function register()
@@ -508,7 +523,7 @@ function contact()
 
 function sendEmail()
 {
-    $sentM = mail('julienbarre01@ymail.com', 'contact-form', $_POST['message'], 'From : blog de Jean Forteroche');
+    $sentM = mail('julienbarre01@ymail.com', 'contact-form', $_POST['message'], 'From : blog de Jean Forteroche - ' . $_POST['name'] . $_POST['message']);
     if (!$sentM) {
         throw new Exception('Échec de l\' envoi.');
     }
