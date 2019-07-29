@@ -109,7 +109,7 @@
 	    		</ul>
     		</div>
     		<div id="legal">
-    			<p>Copyright © 2019 - Jean Forteroche - Tous droits réservés / Site réalisé par <a href="https://julienbarre.fr">un glandu</a></p>
+    			<p>Copyright © 2019 - Jean Forteroche - Tous droits réservés - <a href="index.php?action=legal">Mentions Légales</a> | Site réalisé par <a href="https://julienbarre.fr">un glandu</a></p>
                 <div class="footer-links">
     			<p>Plan du site : <a href="index.php">Acceuil</a> | <a href="index.php?action=listPosts&amp;page=1">Blog</a> | <a href="index.php?action=about">À propos</a> | <a href="index.php?action=contact">Contact</a> | <?php if (isset($_SESSION['id']) AND isset($_SESSION['name'])) { ?><span class="profile-link"><a href="index.php?action=showProfile&amp;id=<?= $_SESSION['id'] ?>&amp;page=1"><?php echo $_SESSION['name'] ?></a></span> | <a href="index.php?action=logout">Déconnexion</a><?php } else { ?><a href="index.php?action=register">Connexion</a><?php }?></p>
                 </div>
