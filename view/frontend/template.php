@@ -23,7 +23,26 @@
         <script src="https://cdn.tiny.cloud/1/50b9t4itc4o9gqlx8amxckfmfju1qcpyvxljpdpjvjgnh820/tinymce/5/tinymce.min.js"></script>
         <script>
             tinymce.init({
-                selector: '#tm_new_post'
+                selector: '#tm_new_post',
+                plugins: [
+                'advlist autolink link image imagetools lists charmap print preview hr anchor pagebreak spellchecker',
+                'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+                'save table contextmenu directionality emoticons template paste textcolor'
+                ],
+                menubar: [
+                "file",
+                "edit",
+                "view",
+                "insert",
+                "format",
+                "tools"
+                ],
+                toolbar: 'newdocument insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons',
+                image_list: [
+                {title: 'My image 1', value: 'https://www.tinymce.com/my1.gif'},
+                {title: 'My image 2', value: 'http://www.moxiecode.com/my2.gif'}
+                ],
+                imagetools_toolbar: "rotateleft rotateright | flipv fliph | editimage imageoptions"
             });
         </script>
     </head>
