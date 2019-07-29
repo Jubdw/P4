@@ -427,6 +427,28 @@ a
     font-weight: bold;
     text-align: justify;
 }
+/* ------ LEGAL VIEW ------ */
+.legal-text 
+{
+    width: 90%;
+    height: 800px;
+    overflow: scroll;
+    margin: 0 4% 0 4%;
+    padding: 1%;
+    border: 1px solid black;
+    border-radius: 0;
+    background-color: rgba(240,240,240, 0.8);
+}
+.title-legal h1
+{
+    font-size: 1.5em;
+    text-align: left;
+}
+.title-legal h2
+{
+    font-size: 1.1em;
+    text-align: left;
+}
 
 /* ------ ERROR VIEW ------ */
 
