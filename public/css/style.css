@@ -799,7 +799,15 @@ a
 {
     padding: 2px;
 }
-.comment-block, .comment-unblock
+.comment-admin-commands
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.comment-block, .comment-unblock, .comment-delete
 {
     margin: 4px 8px;
     padding: 0;
@@ -814,12 +822,12 @@ a
     border-radius: 50%;
     background-color: rgb(240,160,160);
 }
-.comment-block a, .comment-unblock a 
+.comment-block a, .comment-unblock a, .comment-delete a
 {
     color: black;
     font-size: 0.8em;
 }
-.comment-block a:hover, .comment-unblock a:hover
+.comment-block a:hover, .comment-unblock a:hover, .comment-delete a:hover
 {
     text-decoration: underline;
     font-weight: bold;
@@ -827,6 +835,8 @@ a
 .comment-block:hover { background-color: rgb(240,60,60); }
 .comment-unblock { background-color: rgb(140,190,240); }
 .comment-unblock:hover { background-color: rgb(100,240,120); }
+.comment-delete { background-color: rgb(240,60,60); }
+.comment-delete:hover { background-color: rgb(255,0,0); }
 
 .c-blocked /* https://colorzilla.com/gradient-editor */
 {
