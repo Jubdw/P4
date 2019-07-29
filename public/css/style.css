@@ -315,6 +315,8 @@ a
 }
 .link-report a { color: red; }
 .link-report a:hover, .link-update a:hover { font-weight: bold; color: rgb(80,40,40); }
+
+.link-reported { font-style: italic; color: red; text-align: right; }
 /* ------ HOME VIEW ------ */
 
 .separation
