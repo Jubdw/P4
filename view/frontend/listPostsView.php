@@ -4,6 +4,7 @@
 <div class="title">
     <h1>Billet simple pour l'alaska</h1>
     <h3>Derniers épisodes du roman :</h3>
+    <a href="index.php">Retour à l'acceuil</a>
 </div>
 
 <div class="list-posts">
@@ -31,11 +32,11 @@
 	?>
 	    <div class="episode">
 	        <div class="episode-title">
-	            <h2><a href="index.php?action=post&amp;id=<?= $data['id'] ?>&page=1"><?= htmlspecialchars($data['title']) ?></a></h2>
+	            <h2><a href="index.php?action=post&amp;id=<?= $data['id'] ?>&page=1"><?= $data['title'] ?></a></h2>
 	            <em>le <?= $data['creation_date_fr'] ?></em>
 	        </div><br>
 
-	        <p><?= nl2br(htmlspecialchars($data['small_content'])) ?> ... <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>&page=1">Lire la suite</a></em></p>
+	        <p><?= nl2br($data['small_content']) ?> ... <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>&page=1">Lire la suite</a></em></p>
 	    </div><br>
 	<?php
 	}
