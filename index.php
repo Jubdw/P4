@@ -320,6 +320,9 @@ try {
         elseif ($_GET['action'] == 'contact') {
             contact();
         }
+        elseif ($_GET['action'] == 'legal') {
+            legal();
+        }
         elseif ($_GET['action'] == 'mail') {
             if (!empty($_POST['message'])) {
                 sendEmail();
