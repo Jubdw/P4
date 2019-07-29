@@ -81,10 +81,15 @@ if (!isset($_SESSION['id']) || $_SESSION['id'] != $_GET['id']) {
 			<div class="link-update"><a href="index.php?action=update&amp;id=<?= $data['id'] ?>">&#9997; Modifier &#9997;</a></div>
 			<?php
 		}
-		if (!isset($_SESSION['id']) || $_SESSION['id'] != $_GET['id'] && $data['blocked'] == 0) {
+		if (!isset($_SESSION['id']) || $_SESSION['id'] != $_GET['id'] && $data['blocked'] == 0 && $data['reported'] == 0) {
 			?>
 			<div class="link-report"><a href="index.php?action=reportComment&amp;id=<?= $data['id'] ?>">&#128683; Signaler &#128683;</a></div>
 			<?php
+		}
+		if (!isset($_SESSION['id']) || $_SESSION['id'] != $_GET['id'] && $data['blocked'] == 0 && $data['reported'] == 1) {
+			?>
+			<div class="link-reported"><p>Ce commentaire a été signalé.</p></div>
+			<?php 
 		}
 		?>
 	</div>

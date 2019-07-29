@@ -65,40 +65,46 @@
 <?php
 while ($comment = $comments->fetch())
 {
-    if ($comment['blocked'] === '0') 
-    {
-    ?>
+?>
     <div class="comment">
-        <p><strong><a href="index.php?action=showProfile&amp;id=<?= $comment['user_id'] ?>&amp;page=1"><?php echo $comment['user_name'] ?></a></strong> le <?php echo $comment['comment_date_fr'] ?></p>
+        <p><strong><a href="index.php?action=showProfile&amp;id=<?= $comment['user_id'] ?>&amp;page=1"><?= $comment['user_name'] ?></a></strong> le <?= $comment['comment_date_fr'] ?></p>
+        <?php 
+        if ($comment['blocked'] === '0') 
+        {
+        ?>
         <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
         <?php 
-        if (isset($_SESSION['id']) AND isset($_SESSION['name'])) {
-            if ($_SESSION['id'] == $comment['user_id']) 
+        }
+        else
+        {
+        ?>
+        <p><em>Ce commentaire a été bloqué par l'auteur. Veuillez respecter son travail ainsi que les commentaires des autres lecteurs.</em></p>
+        <?php
+        }
+        if (isset($_SESSION['id'])) {
+            if ($_SESSION['id'] == $comment['user_id'] && $comment['blocked'] === '0') 
             {
             ?>
             <div class="link-update"><a href="index.php?action=update&amp;id=<?= $comment['id'] ?>">&#9997; Modifier &#9997;</a></div>
             <?php
             }
-            else 
+            elseif ($comment['reported'] === '0' && $comment['blocked'] === '0')
             {
             ?>
             <div class="link-report"><a href="index.php?action=reportComment&amp;id=<?= $comment['id'] ?>">&#128683; Signaler &#128683;</a></div>
             <?php
             }
+            elseif ($comment['reported'] === '1')
+            {
+            ?>
+            <div class="link-reported"><p>Ce commentaire a été signalé.</p></div>
+            <?php
+            }
         }
         ?>
     </div>
-    <?php
-    }
-    else 
-    {
-    ?>
-    <div class="comment">
-        <p><strong><a href="index.php?action=showProfile&amp;id=<?= $comment['user_id'] ?>"><?php echo $comment['user_name'] ?></a></strong> le <?php echo $comment['comment_date_fr'] ?></p>
-        <p><em>Ce commentaire a été bloqué par l'auteur. Veuillez respecter son travail ainsi que les commentaires des autres lecteurs.</em></p>
-    </div>
-    <?php
-    }    
+
+<?php
 }
 ?>
     <div class="paging">
