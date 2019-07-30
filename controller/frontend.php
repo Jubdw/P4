@@ -344,10 +344,23 @@ function manageUser($page)
 }
 
 /* -------------------------------------------------------------------------- POST ----- */
-function smallPosts()
+function smallPosts($page)
 {
     $postManager = new PostManager();
-    $posts_small = $postManager->getSmallPosts();
+    
+    $countP = $postManager->countPosts();
+    $postsNb = $countP['postsNb'];
+    $perPage = 5;
+    $maxPages = ceil($postsNb/$perPage);
+    if ($page <= $maxPages) {
+        $currentPage = $page;
+    }
+    else {
+        $currentPage = 1;
+    }
+    $start = (($currentPage - 1) * $perPage);
+
+    $posts_small = $postManager->getSmallPostsPaged($start, $perPage);
 
     require('view/backend/postManagementView.php');
 }
@@ -383,7 +396,7 @@ function editPost($id, $title, $content)
         throw new Exception('Impossible de modifier le chapitre !');
     }
     else {
-        header('Location: index.php?action=postManagement');
+        header('Location: index.php?action=postManagement&page=1');
     }
 }
 function deletePost($id)
@@ -395,7 +408,7 @@ function deletePost($id)
         throw new Exception('Impossible d\'effacer le chapitre !');
     }
     else {
-        header('Location: index.php?action=postManagement');
+        header('Location: index.php?action=postManagement&page=1');
     }
 }
 /* -------------------------------------------------------------------------- COMMENT ----- */

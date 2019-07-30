@@ -9,7 +9,7 @@
 	<br>
 	<a href="index.php?action=adminAccess">Retour à l'acceuil admin</a>
 	<br>
-	<a href="index.php?action=postManagement">Gestion des chapitres</a>
+	<a href="index.php?action=postManagement&amp;page=1">Gestion des chapitres</a>
 </div>
 
 <div class="create-new-post">

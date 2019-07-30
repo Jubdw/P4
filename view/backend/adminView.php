@@ -12,7 +12,7 @@
 	</div>
 
 	<div class="post-management">
-		<a href="index.php?action=postManagement">Gestion des chapitres</a>
+		<a href="index.php?action=postManagement&amp;page=1">Gestion des chapitres</a>
 	</div>
 </div>
 

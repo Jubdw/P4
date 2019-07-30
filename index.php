@@ -182,7 +182,12 @@ try {
         }
         elseif ($_GET['action'] == 'postManagement') {
             if ($_SESSION['status'] == "admin") {
-                smallPosts();
+                if (isset($_GET['page']) && $_GET['page'] > 0) {
+                    smallPosts($_GET['page']);
+                }
+                else {
+                     throw new Exception('Ne modifiez pas l\'url !');
+                }
             }
             else {
                 throw new Exception('Vous n\'êtes pas autorisé à accéder à cette page.');

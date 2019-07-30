@@ -19,7 +19,6 @@ class PostManager extends Manager
     {
         $db = $this->dbConnect();
         $req = $db->prepare('SELECT id, title, SUBSTRING(content, 1, 255) AS small_content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT :start, :perPage');
-
         $req->bindValue('start', $start, \PDO::PARAM_INT);
         $req->bindValue('perPage', $perPage, \PDO::PARAM_INT);
         $req->execute();
@@ -27,10 +26,13 @@ class PostManager extends Manager
         return $req;
     }
 
-    public function getSmallPosts()
+    public function getSmallPostsPaged($start, $perPage)
     {
         $db = $this->dbConnect();
-        $req = $db->query('SELECT id, title, SUBSTRING(content, 1, 140) AS small_content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC');
+        $req = $db->prepare('SELECT id, title, SUBSTRING(content, 1, 120) AS small_content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT :start, :perPage');
+        $req->bindValue('start', $start, \PDO::PARAM_INT);
+        $req->bindValue('perPage', $perPage, \PDO::PARAM_INT);
+        $req->execute();
 
         return $req;
     }
