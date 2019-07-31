@@ -3,6 +3,7 @@
 <?php ob_start(); ?>
 <div class="title title-small">
 	<h1>Modifiez les informations relatives à votre compte</h1>
+	<a href="index.php?action=showProfile&amp;id=<?= $_SESSION['id'] ?>&amp;page=1">Retour au profil</a>
 </div>
 
 <div class="edit-profile edit-name">

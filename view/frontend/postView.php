@@ -7,13 +7,13 @@
     <p><a href="index.php">Retour à l'acceuil</a></p>
 </div>
 
-<div class="episode">
+<div class="episode episode-post">
     <div class="episode-title">
         <h2><?= $post['title'] ?></h2>
         <em>le <?= $post['creation_date_fr'] ?></em>
     </div><br>
 
-    <p><?= nl2br($post['content']) ?><br></p>
+    <p><?= $post['content'] ?><br></p>
 </div><br>
 
 <div id="comment-section">

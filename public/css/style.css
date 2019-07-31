@@ -223,18 +223,25 @@ h4
 .episode, #comment-section
 {
     width: 70%;
+    max-height: 350px;
     margin: 8px 13%;
     padding: 1%;
     border: 1px solid black;
     border-radius: 10%;
     background-color: rgba(240,240,240, 0.8);
     font-size: 1.1em;
+    overflow: hidden;
 }
 .episode em 
 {
     font-size: 0.9em;
 }
-
+.episode-post
+{
+    max-height: 800px;
+    overflow: scroll;
+    border-radius: 1px;
+}
 .episode-title
 {
     text-align: center;

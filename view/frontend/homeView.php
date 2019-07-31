@@ -19,7 +19,7 @@
     </div>
 </div>
 <div class="title">
-    <h1><a href="index.php?action=listPosts">Les derniers épisodes du roman :</a></h1>
+    <h1><a href="index.php?action=listPosts&amp;page=1">Les derniers épisodes du roman :</a></h1>
 </div>
 
 <div class="home-episode">

@@ -103,11 +103,16 @@ try {
             editProfile();
         }
         elseif ($_GET['action'] == 'updateName') {
-            if (!empty($_POST['name'])) {
-                updateName($_SESSION['id'], $_POST['name']);
+            if (isset($_SESSION['id'])) {
+                if (!empty($_POST['name'])) {
+                    updateName($_SESSION['id'], $_POST['name']);
+                }
+                else {
+                    throw new Exception('Aucun nouveau nom envoyé !');
+                }
             }
             else {
-                throw new Exception('Aucun nouveau nom envoyé !');
+                throw new Exception('Vous n\'êtes pas autorisé à accéder à cette page.');
             }
         }
         elseif ($_GET['action'] == 'updateEmail') {

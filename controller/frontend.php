@@ -249,7 +249,7 @@ function updateName($id, $name)
     }
     else {
         $_SESSION['name'] = $name;
-        header('Location: index.php?action=showProfile&id=' . $id);
+        header('Location: index.php?action=showProfile&id=' . $id . '&page=1');
     }
 }
 
@@ -272,7 +272,7 @@ function updateEmail($id, $email)
         throw new Exception('Impossible d\'effectuer la modification.');
     }
     else {
-        header('Location: index.php?action=showProfile&id=' . $id);
+        header('Location: index.php?action=showProfile&id=' . $id . '&page=1');
     }
 }
 
@@ -285,7 +285,7 @@ function updatePassword($id, $password)
         throw new Exception('Impossible d\'effectuer la modification.');
     }
     else {
-        header('Location: index.php?action=showProfile&id=' . $id);
+        header('Location: index.php?action=showProfile&id=' . $id . '&page=1');
     }
 }
 
@@ -377,7 +377,7 @@ function addPost($title, $content)
         throw new Exception('Impossible de créer le chapitre !');
     }
     else {
-        header('Location: index.php?action=postManagement');
+        header('Location: index.php?action=postManagement&page=1');
     }
 }
 function showPostToEdit($id)
