@@ -43,9 +43,12 @@
     }
     ?>
 </div>
+<?php 
+if ($commentNb > 0) {
+?>
 <div class="comment-list">
     <div class="paging">
-        <?php 
+    <?php 
         for ($i = 1; $i <= $maxPages; $i++) {
             if ($i == $currentPage) 
             {
@@ -60,7 +63,7 @@
             <?php 
             }
         }
-        ?>
+    ?>
     </div>
 <?php
 while ($comment = $comments->fetch())
@@ -126,6 +129,9 @@ while ($comment = $comments->fetch())
         ?>
     </div>
 </div>
+<?php 
+}
+?>
 
 <?php $content = ob_get_clean(); ?>
 

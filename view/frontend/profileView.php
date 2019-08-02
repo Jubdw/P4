@@ -33,6 +33,9 @@ if (!isset($_SESSION['id']) || $_SESSION['id'] != $_GET['id']) {
 	?>
 </div>
 
+<?php 
+if ($commentNb > 0) {
+?>
 <div>
 	<h4><?= $u_com ?></h4>
 </div>
@@ -115,6 +118,9 @@ if (!isset($_SESSION['id']) || $_SESSION['id'] != $_GET['id']) {
         ?>
     </div>
 </div>
+<?php 
+}
+?>
 
 <?php $content = ob_get_clean(); ?>
 
