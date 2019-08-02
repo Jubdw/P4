@@ -827,6 +827,12 @@ a
     margin-inline-start: 0;
     margin-inline-end: 0;
 }
+.comment-admin-list a { color: black; }
+.comment-admin-list a:hover
+{
+    color: blue;
+    text-decoration: underline;
+}
 .admin-comment
 {
     padding: 2px;
@@ -882,6 +888,7 @@ a
     background: -webkit-linear-gradient(-45deg, rgba(188,37,40,1) 17%,rgba(188,37,40,1) 24%,rgba(188,37,40,0.58) 56%,rgba(117,23,25,0.34) 74%,rgba(125,185,232,0) 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(135deg, rgba(188,37,40,1) 17%,rgba(188,37,40,1) 24%,rgba(188,37,40,0.58) 56%,rgba(117,23,25,0.34) 74%,rgba(125,185,232,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
+.reported a:hover { color: rgb(40,40,40); }
 .small-post 
 {
     display: flex;
