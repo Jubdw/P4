@@ -54,14 +54,14 @@
 	<p>Toute exploitation non autorisée du site ou de l’un quelconque des éléments qu’il contient sera considérée comme constitutive d’une contrefaçon et poursuivie conformément aux dispositions des articles L.335-2 et suivants du Code de Propriété Intellectuelle.</p>
 
 	<div class="title-legal"><h1>6. Limitations de responsabilité.</h1></div>
-	<p>https://www.blog-jean-forteroche.fr agit en tant qu’éditeur du site.</p>
-	<p>https://www.blog-jean-forteroche.fr  est responsable de la qualité et de la véracité du Contenu qu’il publie.</p>
+	<p>JBDW agit en tant qu’éditeur du site.</p>
+	<p>JBDW est responsable de la qualité et de la véracité du Contenu qu’il publie.</p>
 
-	<p>https://www.blog-jean-forteroche.fr ne pourra être tenu responsable des dommages directs et indirects causés au matériel de l’utilisateur, lors de l’accès au site internet </p>
+	<p>JBDW ne pourra être tenu responsable des dommages directs et indirects causés au matériel de l’utilisateur, lors de l’accès au site internet </p>
 	<p>https://www.blog-jean-forteroche.fr, et résultant soit de l’utilisation d’un matériel ne répondant pas aux spécifications indiquées au point 4, soit de l’apparition d’un bug ou d’une incompatibilité.</p>
 
-	<p>https://www.blog-jean-forteroche.fr ne pourra également être tenu responsable des dommages indirects (tels par exemple qu’une perte de marché ou perte d’une chance) consécutifs à l’utilisation du site https://www.blog-jean-forteroche.fr. Des espaces interactifs (possibilité de poser des questions dans l’espace contact) sont à la disposition des utilisateurs. </p>
-	<p>https://www.blog-jean-forteroche.fr se réserve le droit de supprimer, sans mise en demeure préalable, tout contenu déposé dans cet espace qui contreviendrait à la législation applicable en France, en particulier aux dispositions relatives à la protection des données. Le cas échéant, https://www.blog-jean-forteroche.fr se réserve également la possibilité de mettre en cause la responsabilité civile et/ou pénale de l’utilisateur, notamment en cas de message à caractère raciste, injurieux, diffamant, ou pornographique, quel que soit le support utilisé (texte, photographie …).</p>
+	<p>JBDW ne pourra également être tenu responsable des dommages indirects (tels par exemple qu’une perte de marché ou perte d’une chance) consécutifs à l’utilisation du site https://www.blog-jean-forteroche.fr. Des espaces interactifs (possibilité de poser des questions dans l’espace contact) sont à la disposition des utilisateurs. </p>
+	<p>JBDW se réserve le droit de supprimer, sans mise en demeure préalable, tout contenu déposé dans cet espace qui contreviendrait à la législation applicable en France, en particulier aux dispositions relatives à la protection des données. Le cas échéant, JBDW se réserve également la possibilité de mettre en cause la responsabilité civile et/ou pénale de l’utilisateur, notamment en cas de message à caractère raciste, injurieux, diffamant, ou pornographique, quel que soit le support utilisé (texte, photographie …).</p>
 
 	<div class="title-legal"><h1>7. Gestion des données personnelles.</h1></div>
 	<p>Le Client est informé des réglementations concernant la communication marketing, la loi du 21 Juin 2014 pour la confiance dans l’Economie Numérique, la Loi Informatique et Liberté du 06 Août 2004 ainsi que du Règlement Général sur la Protection des Données (RGPD : n° 2016-679).</p>
