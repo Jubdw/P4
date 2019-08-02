@@ -29,7 +29,7 @@ class PostManager extends Manager
     public function getSmallPostsPaged($start, $perPage)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('SELECT id, title, content AS small_content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT :start, :perPage');
+        $req = $db->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT :start, :perPage');
         $req->bindValue('start', $start, \PDO::PARAM_INT);
         $req->bindValue('perPage', $perPage, \PDO::PARAM_INT);
         $req->execute();

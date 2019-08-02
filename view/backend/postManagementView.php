@@ -37,7 +37,7 @@
 			<div>
 				<h4><?= $posts['title'] ?></h4>
 				<strong><em>Le : <?= $posts['creation_date_fr'] ?></em></strong>
-				<p><?= $posts['small_content'] ?>...</p>
+				<p><?= $posts['content'] ?>...</p>
 			</div>
 		</div>
 		<div class=" post-manage">
