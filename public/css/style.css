@@ -888,9 +888,11 @@ a
     flex-direction: column;
     justify-content: flex-start;
     min-width: 70%;
-    max-height: 160px;
-    padding: 2%;
+    max-height: 150px;
+    padding: 2px;
+    margin-bottom: 2px;
     overflow: hidden;
+    overflow-wrap: break-word;
 }
 .post-manage
 {
