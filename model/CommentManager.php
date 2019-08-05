@@ -9,7 +9,7 @@ class CommentManager extends Manager
     public function getCommentsPaged($postId, $start, $perPage)
     {
         $db = $this->dbConnect();
-        $comments = $db->prepare('SELECT id, user_id, user_name, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, blocked, reported FROM comments WHERE post_id = :post_id ORDER BY comment_date DESC LIMIT :start, :perPage');
+        $comments = $db->prepare('SELECT id, user_id, user_name, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, blocked, reported FROM comments WHERE post_id = :post_id ORDER BY comment_date ASC LIMIT :start, :perPage');
         $comments->bindValue('start', $start, \PDO::PARAM_INT);
         $comments->bindValue('perPage', $perPage, \PDO::PARAM_INT);
         $comments->bindValue('post_id', $postId, \PDO::PARAM_INT);
