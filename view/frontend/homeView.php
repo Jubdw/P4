@@ -15,7 +15,7 @@
         <p>Acteur, écrivain, aventurier</p>
     </div>
     <div class="home-about-text">
-        <p>On vous met une dague sous le cou et on traverse le camp en gueulant "bougez-pas, bougez-pas ou un bute le roi". Un chef de guerre qui commande plus c’est pas bon. Il va déprimer, il va s’mettre à bouffer, il va prendre quarante livres! Ah, ben tourné vers là-bas c'est sûr, moi non plus je vois rien. J’ai envie d’faire des tartes, voilà! Vous n’allez pas m’obliger à m’justifier! Mais oui mon p’tit père il faudra bien vous y coller! À moins que vous préfériez vous taper les tartes! Non mais n’exagérez pas non plus! J’vous demande quand même pas de manger des briques!</p>
+        <p>Après plusieurs années de voyage autour la terre, je reviens à ma première passion : l'écriture. J'ai décidé de vous partager mes expériences vécues lors de mes périgrinations. Je poste régulièrement sur ce blog de nouveaux chapitres de mon roman en cours : Billet simple pour l'Alaska. Revenez toutes les semaines découvrir de nouvelles pages de cette aventure sur les terres gelées d'Alaska, cette région du monde si isolée et sauvage, qui me fascinne tant...</p>
     </div>
 </div>
 <div class="title">
