@@ -37,7 +37,7 @@
 	<div class="comment-admin-list reported">
 		<div class="admin-comment">
 			<p><a href="index.php?action=showProfile&amp;id=<?= $repComment['user_id'] ?>&amp;page=1"><strong><?= $repComment['user_name'] ?></strong></a> le : <?= $repComment['comment_date_fr'] ?></p>
-			<p><?= $repComment['comment'] ?></p>
+			<p><?= nl2br(htmlspecialchars($repComment['comment'])) ?></p>
 		</div>
 		<div class="comment-admin-commands">
 			<div class="comment-block">
@@ -98,7 +98,7 @@
 	<div class="comment-admin-list c-blocked">
 		<div class="admin-comment">
 			<p><a href="index.php?action=showProfile&amp;id=<?= $blockComment['user_id'] ?>&amp;page=1"><strong><?= $blockComment['user_name'] ?></strong></a> le : <?= $blockComment['comment_date_fr'] ?></p>
-			<p><?= $blockComment['comment'] ?></p>
+			<p><?= nl2br(htmlspecialchars($blockComment['comment'])) ?></p>
 		</div>
 		<div class="comment-admin-commands">
 			<div class="comment-unblock">

@@ -37,7 +37,7 @@
 	<div class="comment-admin-list">
 		<div class="admin-comment">
 			<p><a href="index.php?action=showProfile&amp;id=<?= $comment['user_id'] ?>&amp;page=1"><strong><?= $comment['user_name'] ?></strong></a> le : <?= $comment['comment_date_fr'] ?></p>
-			<p><?= $comment['comment'] ?></p>
+			<p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
 		</div>
 		<div class="comment-admin-commands">
 			<div class="comment-block">
