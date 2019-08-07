@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="utf-8" />
         <title><?= $title ?></title>
@@ -122,9 +122,9 @@
     		<div id="links">
     			<p>Retrouvez moi sur les réseaux sociaux :</p>
     			<ul>
-	    			<li><a href="https://www.facebook.com"><img src="public/images/facebook-icon.png"></a></li>
-	    			<li><a href="https://www.instagram.com"><img src="public/images/instagram-icon.png"></a></li>
-	    			<li><a href="https://www.twitter.com"><img src="public/images/Twitter-icon.png"></a></li>
+	    			<li><a href="https://www.facebook.com"><img src="public/images/facebook-icon.png" alt="Facebook"></a></li>
+	    			<li><a href="https://www.instagram.com"><img src="public/images/instagram-icon.png" alt="Instagram"></a></li>
+	    			<li><a href="https://www.twitter.com"><img src="public/images/Twitter-icon.png" alt="Twitter"></a></li>
 	    		</ul>
     		</div>
     		<div id="legal">
