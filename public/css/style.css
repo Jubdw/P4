@@ -3,7 +3,7 @@ body
     position: relative;
     width: 100%;
     margin: 0 0;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: Calibri,Helvetica,Arial,sans-serif;
     background-image: url("../images/photos/glacier.jpg");
     background-repeat: repeat;
 }
@@ -497,7 +497,16 @@ a
     display: flex;
     justify-content: center;
     align-items: center;
-    
+}
+.mailsent
+{
+    height: 200px;
+    font-size: 1.4em;
+    font-weight: bold;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 /* ------ REGISTER VIEW ------ */
 
@@ -902,6 +911,8 @@ a
     overflow: hidden;
     overflow-wrap: break-word;
 }
+.small-post a { color: black; }
+.small-post a:hover { color: rgb(60,60,60); text-decoration: underline; }
 .post-manage
 {
     width: 20%;
@@ -1107,8 +1118,39 @@ a#b-Back.b-Visible
 }
 @media only screen and (max-width: 1100px)
 {
+    p
+    {
+        font-size: 1.6em;
+    }
+    footer p, footer a
+    {
+        font-size: 1.2em;
+    }
+    .home-about
+    {
+        height: 50%;
+    }
     .about img
     {
         height: 400px;
+    }
+    .paging p, .paging a
+    {
+        font-size: 2em;
+        font-weight: bold;
+        padding: 3%;
+    }
+    .episode, .episode-post, .comment-list, #comment-section, .list-posts, .home-episode
+    {
+        width: 92%;
+        margin: 2px 4%;
+        padding: 0;
+        background-color: rgba(240,240,240, 0.9);
+        border-radius: 0;
+    }
+    .episode-post
+    {
+        padding: 1%;
+        margin: 2px 3%;
     }
 }

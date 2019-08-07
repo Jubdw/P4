@@ -1,6 +1,17 @@
 <?php $title = 'Contactez Jean Forteroche'; ?>
 
 <?php ob_start(); ?>
+
+<?php 
+if (isset($_GET['mailsent']) && $_GET['mailsent'] == 1) {
+?>
+<div class="mailsent">
+	<p>Merci, votre message a bien été envoyé.</p>
+</div>
+<?php 
+}
+?>
+
 <div class="contact">
 	<div class="titles titles-contact">
 		<h1>Contactez Jean Forteroche</h1>

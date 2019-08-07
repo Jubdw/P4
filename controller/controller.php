@@ -541,11 +541,11 @@ function legal()
 
 function sendEmail()
 {
-    $sentM = mail('julienbarre01@ymail.com', 'contact-form', $_POST['message'], 'From : blog de Jean Forteroche - ' . $_POST['name'] . $_POST['message']);
+    $sentM = mail('julienbarre01@ymail.com', 'contact-form', $_POST['message'], $_POST['email']);
     if (!$sentM) {
         throw new Exception('Échec de l\' envoi.');
     }
     else {
-        header('Location: index.php?action=about');
+        header('Location: index.php?action=contact&mailsent=1');
     }
 }
