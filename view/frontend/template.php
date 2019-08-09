@@ -24,6 +24,7 @@
         <script>
             tinymce.init({
                 selector: '#tm_new_post',
+                entity_encoding : "raw",
                 plugins: [
                 'advlist autolink link image imagetools lists charmap print preview hr anchor pagebreak spellchecker',
                 'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
