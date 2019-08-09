@@ -7,7 +7,6 @@ body
     background-image: url("../images/photos/glacier.jpg");
     background-repeat: repeat;
 }
-
 header
 {
     margin: 0 0;
@@ -72,7 +71,6 @@ nav a:hover
     top: 60px;
     margin-bottom: 12%;
 }
-
 footer ul
 {
     list-style-type: none;
@@ -110,10 +108,7 @@ footer a:hover
 }
 .footer-links p
 {
-    margin-block-start: 0;
-    margin-block-end: 0;
-    margin-inline-start: 0;
-    margin-inline-end: 0;
+    margin: 0;
 }
 #legal
 {
@@ -129,10 +124,8 @@ footer a:hover
 h1, h2, h3, h4
 {
     text-align:center;
-    margin-block-start: 0;
-    margin-block-end: 0;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
+    margin-left: 0;
+    margin-right: 0;
     margin-bottom: 20px;
     margin-top: 20px;
 }
@@ -309,10 +302,7 @@ a
 .comment a:hover { text-decoration: underline; color: rgb(0,0,180); }
 .comment p
 {
-    margin-block-start: 0;
-    margin-block-end: 0;
-    margin-inline-start: 0;
-    margin-inline-end: 0;
+    margin: 0;
 }
 .link-update, .link-report
 {
@@ -501,7 +491,7 @@ a
 .mailsent
 {
     height: 200px;
-    font-size: 1.4em;
+    font-size: 1.8em;
     font-weight: bold;
     color: black;
     display: flex;
@@ -720,10 +710,7 @@ a
 .user-data p
 {
     display: block;
-    margin-block-start: 0;
-    margin-block-end: 0;
-    margin-inline-start: 0;
-    margin-inline-end: 0;
+    margin: 0;
 }
 .big
 {
@@ -831,10 +818,7 @@ a
 }
 .comment-admin-list p
 {
-    margin-block-start: 0;
-    margin-block-end: 0;
-    margin-inline-start: 0;
-    margin-inline-end: 0;
+    margin: 0;
 }
 .comment-admin-list a { color: black; }
 .comment-admin-list a:hover
@@ -905,7 +889,7 @@ a
     flex-direction: column;
     justify-content: flex-start;
     min-width: 70%;
-    max-height: 150px;
+    max-height: 140px;
     padding: 2px;
     margin-bottom: 2px;
     overflow: hidden;
